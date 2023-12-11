@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import Portal from './Components/Portal';
 
 
 
@@ -15,6 +16,12 @@ function App() {
 
   const [chosenRole, setChosenRole] = useState();
 
+  const [portal, setPortal] = useState(false);
+
+  function openPortal(){
+    setPortal((prev) => !prev)
+  }
+
   function chooseClass(event){
     setChosenClass(event.target.value)
   }
@@ -26,7 +33,7 @@ function App() {
 
   return (
     <>
-     
+     <h1>Which Class and Role do you want to learn about?</h1>
     <select name="" id="" onChange={(event) => chooseClass(event)}>
       <option value="">Choose a Class</option>
       <option value="paladin">Paladin</option>
@@ -44,10 +51,10 @@ function App() {
     {!chosenRole || !chosenClass ? <p>Please choose a class and role</p> : <>
       <h2>{chosenClass}</h2>
       <p>{classInfo[chosenClass][chosenRole]}</p>
-    
-    
     </>}
 
+    <button onClick={openPortal}>Portal Test</button>
+    {portal ? <Portal close={openPortal} /> : <p>Portal yok</p>}
     
       
 
