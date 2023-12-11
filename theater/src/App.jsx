@@ -3,9 +3,9 @@ import { useState } from 'react';
 import Portal from './Components/Portal';
 
 const initialGameBoard = [
-  ['-', '-', '-'],
-  ['-', '-', '-'],
-  ['-', '-', '-']
+  [null, null, null],
+  [null, null, null],
+  [null, null, null]
 ]
 
 
@@ -26,17 +26,16 @@ function App() {
 
   const [gameBoard, setGameBoard] = useState(initialGameBoard)
 
-  const [putSymbol, setPutSymbol] = useState('X')
+  const [putSymbol, setPutSymbol] = useState()
 
 
 
   function handleSquare(rowIndex, colIndex){
     setPutSymbol((prev) => prev === 'X' ? 'O' : 'X')
 
-    setGameBoard((prev) => {
-      const newGameBoard = [...prev]
-      gameBoard[rowIndex][colIndex] = putSymbol
-      return newGameBoard
+    setGameBoard(() => {
+      initialGameBoard[rowIndex][colIndex] = putSymbol;
+      return initialGameBoard;
     })
     
   }
@@ -83,7 +82,7 @@ function App() {
     <button onClick={openPortal}>Portal Test</button>
     {portal ? <Portal close={openPortal} /> : <p>Portal yok</p>}
     
-    {gameBoard.map((row, rowIndex) => <tr>{row.map((col, colIndex) => <button onClick={() => handleSquare(rowIndex, colIndex)}>{col}</button>)}</tr>)}
+    {gameBoard.map((row, rowIndex) => <tr>{row.map((col, colIndex) => <button onClick={() => handleSquare(rowIndex, colIndex)} disabled={putSymbol !== null}>{putSymbol}</button>)}</tr>)}
 
     </>
 );
