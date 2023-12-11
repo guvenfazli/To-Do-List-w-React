@@ -4,7 +4,6 @@ import Welcome from './Components/Welcome';
 
 
 
-
 function App() {
 
   const [valueNeeded, setValueNeeded] = useState(0);
@@ -12,6 +11,8 @@ function App() {
   function getValue(event){
     setValueNeeded(event.target.value)
   }
+
+
 
   function createInput(){
     let inputCreator = []
@@ -24,13 +25,6 @@ function App() {
   }
 
   let inputHolder = createInput()
-
-  console.log(inputHolder)
-
-  console.log(+valueNeeded)
-
-
-
 
   const [welcome, setWelcome] = useState(true)
 
@@ -53,8 +47,6 @@ function App() {
       }
     })
   }
-
-
   
   function calculateMean({sinav1, sinav2}){
     setMean((sinav1 + sinav2) / valueNeeded)
