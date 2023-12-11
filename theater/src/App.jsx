@@ -16,7 +16,7 @@ function App() {
   function createInput(){
     let inputCreator = []
 
-    for(let i = 0; i <= +valueNeeded; i++){
+    for(let i = 1; i <= +valueNeeded; i++){
       inputCreator.push([i])
     }
     console.log(inputCreator)
@@ -57,7 +57,7 @@ function App() {
 
   
   function calculateMean({sinav1, sinav2}){
-    setMean((sinav1 + sinav2) / 2)
+    setMean((sinav1 + sinav2) / valueNeeded)
   }
 
 
@@ -70,12 +70,8 @@ function App() {
       <h1>How Much Value Do You Need?</h1>
       <input type="text" placeholder='Value Quantity' onChange={(event) => getValue(event)}/>
       <button onClick={() => createInput()}>Create</button>
-      {inputHolder.map((row) => <input></input>)}
+      {inputHolder.map((row) => <input type="text" onChange={(event) => notYaz(`sinav${row}`, event.target.value)} placeholder={`${row}.Value`} ></input>)}
 
-      
-
-      <input type="text" onChange={(event) => notYaz('sinav1', event.target.value)} placeholder='1. Sınav' />
-      <input type="text" placeholder='2. Sınav' onChange={(event) => notYaz('sinav2', event.target.value)} />
       <button onClick={() => calculateMean(not)}>Calculate</button>
       
       {<p>{mean}</p>}
