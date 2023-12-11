@@ -1,88 +1,88 @@
 import './App.css';
 import { useState } from 'react';
-import Portal from './Components/Portal';
+import Welcome from './Components/Welcome';
 
-const initialGameBoard = [
-  [null, null, null],
-  [null, null, null],
-  [null, null, null]
-]
 
 
 
 function App() {
 
-  const classInfo = { 
-    paladin: {healer: 'Heals with holy light. Better than most of the priests imo.', dps: 'Does heavy damage with the sword and holy light.', tank: 'One of the best tanks in the game. Almost never dies and forever self-healing.'}, 
-    warrior: {healer: 'There is no such a thing as Healer Warrior', dps: 'Does heavy damage depends on if the player is furry or arms.', tank: 'One of the best and classic tanks in the game.'},
-    druid: {healer: 'Very efficiant and very fast healing. Does heavy healing with tranquility.', dps: 'Boomy druid deals the heaviest dmg as druid. Recommended.', tank: 'Depends on the expension, can be the best tank during that era of the game, Bear form.'} 
+  const [valueNeeded, setValueNeeded] = useState(0);
+
+  function getValue(event){
+    setValueNeeded(event.target.value)
   }
 
-  const [chosenClass, setChosenClass] = useState();
+  function createInput(){
+    let inputCreator = []
 
-  const [chosenRole, setChosenRole] = useState();
+    for(let i = 0; i <= +valueNeeded; i++){
+      inputCreator.push([i])
+    }
+    console.log(inputCreator)
+    return inputCreator
+  }
 
-  const [portal, setPortal] = useState(false);
+  let inputHolder = createInput()
 
-  const [gameBoard, setGameBoard] = useState(initialGameBoard)
+  console.log(inputHolder)
 
-  const [putSymbol, setPutSymbol] = useState()
+  console.log(+valueNeeded)
 
 
 
-  function handleSquare(rowIndex, colIndex){
-    setPutSymbol((prev) => prev === 'X' ? 'O' : 'X')
 
-    setGameBoard(() => {
-      initialGameBoard[rowIndex][colIndex] = putSymbol;
-      return initialGameBoard;
+  const [welcome, setWelcome] = useState(true)
+
+  function closePopUp(){
+    setWelcome((prev) => !prev)
+  }
+
+  const [not, setNot] = useState({
+    sinav1: 0,
+    sinav2: 0  
+  })
+
+  const [mean, setMean] = useState(0)
+
+  function notYaz(parameter, yeniNot){
+    setNot((prev) => {
+      return {
+        ...prev,
+        [parameter]: +yeniNot
+      }
     })
-    
   }
 
-  function openPortal(){
-    setPortal((prev) => !prev)
-  }
 
-  function chooseClass(event){
-    setChosenClass(event.target.value)
-  }
-
-  function chooseRole(event){
-    setChosenRole(event.target.value)
+  
+  function calculateMean({sinav1, sinav2}){
+    setMean((sinav1 + sinav2) / 2)
   }
 
 
 
+  
   return (
     <>
-     <h1>Which Class and Role do you want to learn about?</h1>
-    <select name="" id="" onChange={(event) => chooseClass(event)}>
-      <option value="">Choose a Class</option>
-      <option value="paladin">Paladin</option>
-      <option value="warrior">Warrior</option>
-      <option value="druid">Druid</option>
-    </select>
+      {welcome ? <Welcome close={closePopUp} /> : !welcome}
 
-    <select name="" id="" onChange={(event) => chooseRole(event)}>
-      <option value="">Choose a Role</option>
-      <option value="tank">Tank</option>
-      <option value="healer">Healer</option>
-      <option value="dps">Dps</option>
-    </select>
+      <h1>How Much Value Do You Need?</h1>
+      <input type="text" placeholder='Value Quantity' onChange={(event) => getValue(event)}/>
+      <button onClick={() => createInput()}>Create</button>
+      {inputHolder.map((row) => <input></input>)}
 
-    {
-    !chosenRole || !chosenClass ? <p>Please choose a class and role</p> : 
-    <>
-      <h2>{chosenClass}</h2>
-      <p>{classInfo[chosenClass][chosenRole]}</p>
-    </>
-    }
+      
 
-    <button onClick={openPortal}>Portal Test</button>
-    {portal ? <Portal close={openPortal} /> : <p>Portal yok</p>}
-    
-    {gameBoard.map((row, rowIndex) => <tr>{row.map((col, colIndex) => <button onClick={() => handleSquare(rowIndex, colIndex)} disabled={putSymbol !== null}>{putSymbol}</button>)}</tr>)}
+      <input type="text" onChange={(event) => notYaz('sinav1', event.target.value)} placeholder='1. Sınav' />
+      <input type="text" placeholder='2. Sınav' onChange={(event) => notYaz('sinav2', event.target.value)} />
+      <button onClick={() => calculateMean(not)}>Calculate</button>
+      
+      {<p>{mean}</p>}
+
+
+
+
 
     </>
 );
