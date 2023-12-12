@@ -52,6 +52,37 @@ function App() {
     setMean((sinav1 + sinav2) / valueNeeded)
   }
 
+  const [investment, setInvestment] = useState({
+    initialValue: 0,
+    faiz: 0,
+    year: 0
+  })
+
+  function getUserValues(parameter, newValue){
+    setInvestment((prev) => {
+      return {
+        ...prev,
+        [parameter]: +newValue
+      }
+    }
+    )
+  }
+
+  function calculateInvestment({initialValue, faiz, year}) {
+    let investHolder = []
+    let lastValue = 0
+    for(let i = 0; i < year; i++){
+      investHolder.push({
+        lastValue: (lastValue += initialValue) * faiz,
+        year: i+1
+      
+      })
+    }
+    console.log(investHolder)
+    return investHolder
+  }
+  
+
 
 
   
@@ -69,9 +100,10 @@ function App() {
       {<p>{mean}</p>}
 
       <div className='investment-calculator'>
-        <input type="text" className='initial-value' placeholder='initial-value' />
-        <input type="text" className='faiz' placeholder='faiz' />
-        <input type="text" className='year' placeholder='year'/>
+        <input type="text" className='initial-value' placeholder='initial-value' onChange={(event) => getUserValues('initialValue', event.target.value)} />
+        <input type="text" className='faiz' placeholder='faiz' onChange={(event) => getUserValues('faiz', event.target.value)} />
+        <input type="text" className='year' placeholder='year' onChange={(event) => getUserValues('year', event.target.value)}/>
+        <button onClick={() => calculateInvestment(investment)}>Calculate</button>
 
 
 
