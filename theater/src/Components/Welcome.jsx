@@ -3,7 +3,7 @@ export default function Welcome({close}){
     <>
       <div className="background-cancel"></div>
       <div className="welcome-message">
-        <h1>Welcome to Mean Calculator Test, Lets do This!</h1>
+        <h1>Welcome to my test page, i do many tests here...</h1>
         <button onClick={close}>Lets get started!</button>
       </div>
     

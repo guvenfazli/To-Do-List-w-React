@@ -2,8 +2,15 @@ import './App.css';
 import { useState } from 'react';
 import Welcome from './Components/Welcome';
 
+function karakterYarat(name,age,race){
+  this.name = name;
+  this.age = age;
+  this.race = race;
+}
 
+const char1 = new karakterYarat('Güven', 24, 'Spanish')
 
+console.log(char1)
 function App() {
 
   const [valueNeeded, setValueNeeded] = useState(0);
@@ -82,7 +89,7 @@ function App() {
     return investHolder
   }
   
-
+  let investmentResults = calculateInvestment(investment)
 
 
   
@@ -105,7 +112,14 @@ function App() {
         <input type="text" className='year' placeholder='year' onChange={(event) => getUserValues('year', event.target.value)}/>
         <button onClick={() => calculateInvestment(investment)}>Calculate</button>
 
+        {!investment ? <p>Invest some!</p> : 
+          investmentResults.map((row) => 
+          <div className='invest-results'>
+              {row.year}
 
+              {`$ ${new Intl.NumberFormat("de-DE").format(row.lastValue)}`}
+          </div>)
+        }
 
 
       </div>

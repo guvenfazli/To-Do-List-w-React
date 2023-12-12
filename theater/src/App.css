@@ -25,3 +25,8 @@ body{
   right: 0;
   bottom: 0;
 }
+
+.invest-results{
+  display: flex;
+  flex-direction: row;
+}
