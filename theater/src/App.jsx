@@ -68,6 +68,16 @@ function App() {
       
       {<p>{mean}</p>}
 
+      <div className='investment-calculator'>
+        <input type="text" className='initial-value' placeholder='initial-value' />
+        <input type="text" className='faiz' placeholder='faiz' />
+        <input type="text" className='year' placeholder='year'/>
+
+
+
+
+      </div>
+
 
 
 
