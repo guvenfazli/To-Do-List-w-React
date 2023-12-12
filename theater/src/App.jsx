@@ -8,6 +8,8 @@ function karakterYarat(name,age,race){
   this.race = race;
 }
 
+console.log(new karakterYarat('Leila', 21, 'Spanish'))
+
 const char1 = new karakterYarat('Güven', 24, 'Spanish')
 
 console.log(char1)
@@ -115,9 +117,11 @@ function App() {
         {!investment ? <p>Invest some!</p> : 
           investmentResults.map((row) => 
           <div className='invest-results'>
-              {row.year}
+            {row.year}
 
-              {`$ ${new Intl.NumberFormat("de-DE").format(row.lastValue)}`}
+            {
+              `$ ${new Intl.NumberFormat("de-DE").format(row.lastValue)}`
+            }
           </div>)
         }
 
