@@ -8,11 +8,8 @@ function karakterYarat(name,age,race){
   this.race = race;
 }
 
-console.log(new karakterYarat('Leila', 21, 'Spanish'))
 
-const char1 = new karakterYarat('Güven', 24, 'Spanish')
 
-console.log(char1)
 function App() {
 
   const [valueNeeded, setValueNeeded] = useState(0);
@@ -87,7 +84,6 @@ function App() {
       
       })
     }
-    console.log(investHolder)
     return investHolder
   }
   
