@@ -2,13 +2,8 @@ import './App.css';
 import { useState } from 'react';
 import Welcome from './Components/Welcome';
 
-function karakterYarat(name,age,race){
-  this.name = name;
-  this.age = age;
-  this.race = race;
-}
 
-console.log(new karakterYarat('Güven', 24, 'Human'))
+
 
 function createCharacter({name, age, race}){
   return {
@@ -18,7 +13,6 @@ function createCharacter({name, age, race}){
   }
 }
 
-console.log(createCharacter({name: 'Güven', age: 24, race: 'Human'}))
 
 function App() {
 
@@ -99,7 +93,40 @@ function App() {
   
   let investmentResults = calculateInvestment(investment)
 
+  function karakterYarat({name,age,race}){
+    this.name = name;
+    this.age = age;
+    this.race = race;
+  }
 
+  const [newChar, setNewChar] = useState({
+    name: '',
+    age: '',
+    race: ''
+  })
+
+  function getCharInfo(parameter, newValue){
+    setNewChar((prev) => {
+      return {
+        ...prev,
+        [parameter]: newValue
+      }
+    })
+  }
+
+  let i = 0;
+
+  function karakterYaratAuto(){
+    i++
+    let yeniChar;
+    yeniChar = new karakterYarat(newChar) 
+    console.log(yeniChar)
+  }
+
+
+  console.log(new karakterYarat(newChar))
+
+  console.log(newChar)
   
   return (
     <>
@@ -131,6 +158,14 @@ function App() {
             </p>
           </div>)
         }
+      </div>
+
+      <div className='char-creation'>
+        <input type="text" placeholder='Name' onChange={(event) => getCharInfo('name', event.target.value)} />
+        <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.target.value)} />
+        <input type="text" placeholder='Race' onChange={(event) => getCharInfo('race', event.target.value)} />
+        <button onClick={() => new karakterYarat(newChar)}>Create!</button>
+        <button onClick={() => karakterYaratAuto()}>Test me</button>
       </div>
 
 
