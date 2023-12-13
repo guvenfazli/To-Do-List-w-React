@@ -30,3 +30,7 @@ body{
   display: flex;
   flex-direction: row;
 }
+
+.invest-results p{
+  margin-right: 10px;
+}
