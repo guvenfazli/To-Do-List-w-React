@@ -205,7 +205,7 @@ function App() {
 
       {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
 
-      {workerList.map((row) => <p key={row.id}>{row.name}</p>)}
+      {workerList.map((row) => <p key={row.id}>{row.name} <button>Add</button> </p>)}
 
     </>
 );
