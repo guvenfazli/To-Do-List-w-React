@@ -159,6 +159,25 @@ function App() {
       
     })
   }
+
+  const [ekle, setEkle] = useState()
+  
+  function denemeEkleme(){
+    setEkle(() => {
+      return [
+        
+        "Araba"
+      ]
+    })
+  }
+
+  function denemeEkleme2(){
+    setEkle(() => {
+      return [
+        "Araba BENİM"
+      ]
+    })
+  }
   
   return (
     <>
@@ -206,6 +225,10 @@ function App() {
       {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
 
       {workerList.map((row) => <p key={row.id}>{row.name} <button>Add</button> </p>)}
+      <button onClick={() => denemeEkleme()}>Ekle</button>
+      <button onClick={() => denemeEkleme2()}>Ekle</button>
+
+      {ekle}
 
     </>
 );
