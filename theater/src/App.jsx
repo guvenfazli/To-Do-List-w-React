@@ -12,6 +12,20 @@ const workerList = [
   {id: 6, name: 'Veysel', age: 24, position: 'Software Dev.'},
 ]
 
+const workerAccum = [
+  {id: 1}
+]
+
+workerAccum.map((row) => {
+  workerList.map((worker) => {
+    let oldu;
+    if(worker.id === row.id){
+      oldu = worker
+    }
+    console.log(oldu)
+  })
+})
+
 
 
 function createCharacter({name, age, race}){
@@ -224,23 +238,15 @@ function App() {
    
    
       {ekle.map((row) => {
-        
-          if(ekle.length > 100){
-            return <p>Oha</p>
-          } else {
-            return (
-              <p key={row.id}>{row.id}</p>
-            )
+        workerList.map((worker) => {
+          let matchingUser;
+          if(worker.id === row.id){
+            matchingUser = worker;
           }
-     
 
-         
-
-
-   
-      
+          console.log(matchingUser)
+        })
       })}
-
 
     </>
 );
