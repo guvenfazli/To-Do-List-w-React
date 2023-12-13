@@ -3,41 +3,21 @@ import { useState } from 'react';
 import Welcome from './Components/Welcome';
 
 
-const workerList = [
-  {id: 1 ,name: 'Güven', age: 24, position: 'Software Dev.'},
-  {id: 2 , name: 'Leila', age: 21, position: 'Consultant'},
-  {id: 3 , name: 'Fevzi', age: 22, position: '3D Designer'},
-  {id: 4 , name: 'Eren', age: 16, position: 'Graphic Desinger'},
-  {id: 5 , name: 'Onur', age: 24, position: 'IT'},
-  {id: 6, name: 'Veysel', age: 24, position: 'Software Dev.'},
-]
-
-const workerAccum = [
-  {id: 1}
-]
-
-workerAccum.map((row) => {
-  workerList.map((worker) => {
-    let oldu;
-    if(worker.id === row.id){
-      oldu = worker
-    }
-    console.log(oldu)
-  })
-})
 
 
-
-function createCharacter({name, age, race}){
-  return {
-    name: name,
-    age: age,
-    race: race
-  }
-}
 
 
 function App() {
+
+  const workerList = [
+    {id: 1 ,name: 'Güven', age: 24, position: 'Software Dev.'},
+    {id: 2 , name: 'Leila', age: 21, position: 'Consultant'},
+    {id: 3 , name: 'Fevzi', age: 22, position: '3D Designer'},
+    {id: 4 , name: 'Eren', age: 16, position: 'Graphic Desinger'},
+    {id: 5 , name: 'Onur', age: 24, position: 'IT'},
+    {id: 6, name: 'Veysel', age: 24, position: 'Software Dev.'},
+  ]
+  
 
   const [valueNeeded, setValueNeeded] = useState(0);
 
@@ -177,7 +157,7 @@ function App() {
   const [ekle, setEkle] = useState([])
 
   function userAdd(parameter){
-    let accum = {id: parameter}
+    let accum = {id: +parameter}
     
     setEkle((prev) => {
       return [
@@ -234,18 +214,17 @@ function App() {
 
       {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
 
-      {workerList.map((row) => <p key={row.id}>{row.name} <button onClick={() => userAdd(`${row.id}`)}>Add</button> </p>)}
+      {workerList.map((row) => <p key={row.id}>{row.name} <button onClick={() => userAdd(`${+row.id}`)}>Add</button> </p>)}
    
    
       {ekle.map((row) => {
         workerList.map((worker) => {
-          let matchingUser;
-          if(worker.id === row.id){
-            matchingUser = worker;
+          let oldu;
+          if(row.id === worker.id){
+            oldu = worker
           }
-
-          console.log(matchingUser)
-        })
+          console.log(oldu)
+          })
       })}
 
     </>
