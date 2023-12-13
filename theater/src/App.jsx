@@ -3,6 +3,15 @@ import { useState } from 'react';
 import Welcome from './Components/Welcome';
 
 
+const workerList = [
+  {id: 1 ,name: 'Güven', age: 24, position: 'Software Dev.'},
+  {id: 2 , name: 'Leila', age: 21, position: 'Consultant'},
+  {id: 3 , name: 'Fevzi', age: 22, position: '3D Designer'},
+  {id: 4 , name: 'Eren', age: 16, position: 'Graphic Desinger'},
+  {id: 5 , name: 'Onur', age: 24, position: 'IT'},
+  {id: 6, name: 'Veysel', age: 24, position: 'Software Dev.'},
+]
+
 
 
 function createCharacter({name, age, race}){
@@ -165,9 +174,9 @@ function App() {
       {<p>{mean}</p>}
 
       <div className='investment-calculator'>
-        <input type="text" className='initial-value' placeholder='initial-value' onChange={(event) => getUserValues('initialValue', event.target.value)} />
-        <input type="text" className='faiz' placeholder='faiz' onChange={(event) => getUserValues('faiz', event.target.value)} />
-        <input type="text" className='year' placeholder='year' onChange={(event) => getUserValues('year', event.target.value)}/>
+        <input type="text" className='initial-value' placeholder='Initial Value' onChange={(event) => getUserValues('initialValue', event.target.value)} />
+        <input type="text" className='faiz' placeholder='Faiz' onChange={(event) => getUserValues('faiz', event.target.value)} />
+        <input type="text" className='year' placeholder='Year' onChange={(event) => getUserValues('year', event.target.value)}/>
         <button onClick={() => calculateInvestment(investment)}>Calculate</button>
 
         {!investment ? <p>Invest some!</p> : 
@@ -195,6 +204,8 @@ function App() {
       <button onClick={() => removeQuant()}>Remove</button>
 
       {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
+
+      {workerList.map((row) => <p key={row.id}>{row.name}</p>)}
 
     </>
 );
