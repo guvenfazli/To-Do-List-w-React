@@ -98,6 +98,8 @@ function App() {
     this.race = race;
   }
 
+
+
   const [newChar, setNewChar] = useState({
     name: '',
     age: '',
@@ -114,16 +116,40 @@ function App() {
   }
 
   let i = 0;
+  
 
   function karakterYaratAuto(){
-    i++
-    let yeniChar = new karakterYarat(newChar) 
+    i++ 
+    const yeniChar = new karakterYarat(newChar) 
     console.log(yeniChar)
   }
 
+  const [quant, setQuant] = useState(0)
+  
+ 
+  function addQuant(){
+    setQuant((prev) => {
+      let oldQuant = prev;
+      oldQuant += 1
+      console.log(oldQuant)
+      return oldQuant;  
+      }
+    ) 
+  }
 
-  console.log(new karakterYarat(newChar))
-
+  function removeQuant(){
+    setQuant((prev) => {
+      let oldQuant = prev;
+      if(oldQuant <= 0){
+        alert('You cant go further!')
+        return oldQuant;
+      } else {
+        oldQuant -= 1
+        return oldQuant;  
+      }
+      
+    })
+  }
   
   return (
     <>
@@ -162,11 +188,13 @@ function App() {
         <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.target.value)} />
         <input type="text" placeholder='Race' onChange={(event) => getCharInfo('race', event.target.value)} />
         <button onClick={() => new karakterYarat(newChar)}>Create!</button>
-        <button onClick={() => karakterYaratAuto()}>Test me</button>
+        <button onClick={()=> karakterYaratAuto()}>Test me</button>
       </div>
 
-      
+      <button onClick={() => addQuant()}>Add</button>
+      <button onClick={() => removeQuant()}>Remove</button>
 
+      {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
 
     </>
 );
