@@ -30,7 +30,6 @@ function App() {
     for(let i = 1; i <= +valueNeeded; i++){
       inputCreator.push([i])
     }
-    console.log(inputCreator)
     return inputCreator
   }
 
@@ -118,15 +117,13 @@ function App() {
 
   function karakterYaratAuto(){
     i++
-    let yeniChar;
-    yeniChar = new karakterYarat(newChar) 
+    let yeniChar = new karakterYarat(newChar) 
     console.log(yeniChar)
   }
 
 
   console.log(new karakterYarat(newChar))
 
-  console.log(newChar)
   
   return (
     <>
@@ -168,8 +165,7 @@ function App() {
         <button onClick={() => karakterYaratAuto()}>Test me</button>
       </div>
 
-
-
+      
 
 
     </>
