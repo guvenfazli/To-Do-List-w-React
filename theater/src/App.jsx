@@ -160,24 +160,20 @@ function App() {
     })
   }
 
-  const [ekle, setEkle] = useState()
-  
-  function denemeEkleme(){
-    setEkle(() => {
-      return [
-        
-        "Araba"
-      ]
-    })
-  }
+  const [ekle, setEkle] = useState([])
 
-  function denemeEkleme2(){
-    setEkle(() => {
+  function userAdd(parameter){
+    let accum = {id: parameter}
+    
+    setEkle((prev) => {
       return [
-        "Araba BENİM"
+        ...prev,
+        accum
       ]
     })
   }
+  
+
   
   return (
     <>
@@ -224,11 +220,11 @@ function App() {
 
       {quant >= 10 ? <p>10+</p> : <p>{quant}</p>}
 
-      {workerList.map((row) => <p key={row.id}>{row.name} <button>Add</button> </p>)}
-      <button onClick={() => denemeEkleme()}>Ekle</button>
-      <button onClick={() => denemeEkleme2()}>Ekle</button>
+      {workerList.map((row) => <p key={row.id}>{row.name} <button onClick={() => userAdd(`${row.id}`)}>Add</button> </p>)}
+   
+   
+      {ekle.map((row) => <p key={row.id}>{row.id}</p>)}
 
-      {ekle}
 
     </>
 );
