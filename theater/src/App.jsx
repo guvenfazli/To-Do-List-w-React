@@ -223,7 +223,23 @@ function App() {
       {workerList.map((row) => <p key={row.id}>{row.name} <button onClick={() => userAdd(`${row.id}`)}>Add</button> </p>)}
    
    
-      {ekle.map((row) => <p key={row.id}>{row.id}</p>)}
+      {ekle.map((row) => {
+        
+          if(ekle.length > 100){
+            return <p>Oha</p>
+          } else {
+            return (
+              <p key={row.id}>{row.id}</p>
+            )
+          }
+     
+
+         
+
+
+   
+      
+      })}
 
 
     </>
