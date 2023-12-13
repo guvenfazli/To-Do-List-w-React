@@ -218,13 +218,18 @@ function App() {
    
    
       {ekle.map((row) => {
+        let oldu;
+
         workerList.map((worker) => {
-          let oldu;
           if(row.id === worker.id){
             oldu = worker
           }
           console.log(oldu)
           })
+
+        return (
+          <p>{oldu.position}</p>
+        )
       })}
 
     </>
