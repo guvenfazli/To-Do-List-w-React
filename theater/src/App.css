@@ -38,9 +38,14 @@ body{
 .contact-section{
   transition: 1s;
   transform: translateX(-5px);
+  border: 1px solid red;
+  width: 29%;
 }
 
 .active-contact{
+  visibility: hidden;
   opacity: 0;
+  width: 29%;
+
 }
 
