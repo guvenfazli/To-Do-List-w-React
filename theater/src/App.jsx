@@ -190,7 +190,7 @@ function App() {
 
       <button onClick={() => calculateMean(not)}>Calculate</button>
       
-      {mean <= 50 ? <p>KALDIN OROSPU EVLADI {mean}</p> : <p>GEÇTİN OROSPU EVLADI AMA HEMEN SEVİNME SENEYE BUNUN AYNISI VAR {mean}</p>}
+      {<p>{mean}</p>}
 
       <div className='investment-calculator'>
         <input type="text" className='initial-value' placeholder='Initial Value' onChange={(event) => getUserValues('initialValue', event.target.value)} />
