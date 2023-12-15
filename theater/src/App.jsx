@@ -24,7 +24,15 @@ function App() {
   const [openNav, setOpenNav] = useState(false)
 
   function openContact(){
+    setOpenFb(false)
     setOpenNav((prev) => !prev)
+  }
+
+  const [openFb, setOpenFb] = useState(false)
+
+  function openFeedBack(){
+    setOpenNav(false)
+    setOpenFb((prev) => !prev)
   }
 
 
@@ -236,6 +244,7 @@ function App() {
 
       <div className='button-animation-test'>
         <button onMouseOver={openContact}>Contact</button>
+        <button onMouseOver={openFeedBack} >Feedback</button>
         {!openNav ? <></> :  
         
         <div onMouseLeave={openContact} className={`contact-section ${openNav ? 'active-contact' : undefined}`}>
@@ -243,6 +252,14 @@ function App() {
           <button>Twitter</button>
           <button>Reddit</button>
         </div>}
+
+        {!openFb ? <></> : <div onMouseLeave={openFeedBack} >
+          <button>Good</button>
+          <button>Meh</button>
+          <button>Bad</button>
+        </div>}
+
+
       </div>
 
     </>
