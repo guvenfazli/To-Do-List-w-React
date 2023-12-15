@@ -238,7 +238,7 @@ function App() {
         <button onMouseOver={openContact}>Contact</button>
         {!openNav ? <></> :  
         
-        <div onMouseLeave={openContact} className='contact-section'>
+        <div onMouseLeave={openContact} className={`contact-section ${openNav ? 'active-contact' : undefined}`}>
           <button>Facebook</button>
           <button>Twitter</button>
           <button>Reddit</button>
