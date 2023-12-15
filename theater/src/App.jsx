@@ -232,6 +232,8 @@ function App() {
         )
       })}
 
+      {console.log(ekle)}
+
     </>
 );
 }
