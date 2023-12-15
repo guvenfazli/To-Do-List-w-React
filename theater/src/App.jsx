@@ -228,7 +228,7 @@ function App() {
           })
 
         return (
-          <p>{oldu.position}</p>
+          <p key={row.id}>{oldu.position}</p>
         )
       })}
 
