@@ -245,19 +245,20 @@ function App() {
       <div className='button-animation-test'>
         <button onMouseOver={openContact}>Contact</button>
         <button onMouseOver={openFeedBack} >Feedback</button>
-        {!openNav ? <></> :  
-        
+       
         <div onMouseLeave={openContact} className={`contact-section ${openNav ? 'active-contact' : undefined}`}>
           <button>Facebook</button>
           <button>Twitter</button>
           <button>Reddit</button>
-        </div>}
+        </div>
 
-        {!openFb ? <></> : <div onMouseLeave={openFeedBack} >
+        {
+        !openFb ? <></> : <div onMouseLeave={openFeedBack} >
           <button>Good</button>
           <button>Meh</button>
           <button>Bad</button>
-        </div>}
+        </div>
+        }
 
 
       </div>

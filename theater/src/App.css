@@ -36,11 +36,11 @@ body{
 }
 
 .contact-section{
-  visibility: hidden;
   transition: 1s;
+  transform: translateX(-5px);
 }
 
 .active-contact{
-  visibility: visible;
+  opacity: 0;
 }
 
