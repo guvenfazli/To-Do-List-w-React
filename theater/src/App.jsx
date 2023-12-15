@@ -3,10 +3,6 @@ import { useState } from 'react';
 import Welcome from './Components/Welcome';
 
 
-
-
-
-
 function App() {
 
   const workerList = [
