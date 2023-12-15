@@ -21,6 +21,12 @@ function App() {
     setValueNeeded(event.target.value)
   }
 
+  const [openNav, setOpenNav] = useState(false)
+
+  function openContact(){
+    setOpenNav((prev) => !prev)
+  }
+
 
 
   function createInput(){
@@ -228,7 +234,16 @@ function App() {
         )
       })}
 
-      {console.log(ekle)}
+      <div className='button-animation-test'>
+        <button onMouseOver={openContact}>Contact</button>
+        {!openNav ? <></> :  
+        
+        <div onMouseLeave={openContact} className='contact-section'>
+          <button>Facebook</button>
+          <button>Twitter</button>
+          <button>Reddit</button>
+        </div>}
+      </div>
 
     </>
 );
