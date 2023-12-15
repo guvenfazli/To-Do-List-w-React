@@ -38,7 +38,6 @@ body{
 .contact-section{
   transition: 1s;
   transform: translateX(-5px);
-  border: 1px solid red;
   width: 29%;
 }
 
@@ -46,6 +45,18 @@ body{
   visibility: hidden;
   opacity: 0;
   width: 29%;
+}
 
+.deneme-bg{
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  left: -50%;
+  right: -50%;
+  border: 1px solid red;
+  
+  
+  
 }
 

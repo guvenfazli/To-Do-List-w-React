@@ -260,6 +260,7 @@ function App() {
         </div>
         }
 
+        <div className='deneme-bg' ><p>Selam</p></div>
 
       </div>
 
