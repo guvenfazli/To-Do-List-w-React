@@ -190,7 +190,7 @@ function App() {
 
       <button onClick={() => calculateMean(not)}>Calculate</button>
       
-      {<p>{mean}</p>}
+      {mean <= 50 ? <p>KALDIN OROSPU EVLADI {mean}</p> : <p>GEÇTİN OROSPU EVLADI AMA HEMEN SEVİNME SENEYE BUNUN AYNISI VAR {mean}</p>}
 
       <div className='investment-calculator'>
         <input type="text" className='initial-value' placeholder='Initial Value' onChange={(event) => getUserValues('initialValue', event.target.value)} />
@@ -242,27 +242,35 @@ function App() {
         )
       })}
 
-      <div className='button-animation-test'>
-        <button onMouseOver={openContact}>Contact</button>
-        <button onMouseOver={openFeedBack} >Feedback</button>
-       
-        <div onMouseLeave={openContact} className={`contact-section ${openNav ? 'active-contact' : undefined}`}>
-          <button>Facebook</button>
-          <button>Twitter</button>
-          <button>Reddit</button>
-        </div>
+            <button onMouseOver={openContact}>Contact</button>
+            <button onMouseOver={openFeedBack} >Feedback</button>
 
-        {
-        !openFb ? <></> : <div onMouseLeave={openFeedBack} >
-          <button>Good</button>
-          <button>Meh</button>
-          <button>Bad</button>
-        </div>
-        }
+          {!openNav ? <></> :       <div className='button-animation-test'>
 
-        <div className='deneme-bg' ><p>Selam</p></div>
+        
+         
 
-      </div>
+            <div onMouseLeave={openContact} className={`contact-section ${openNav ? 'active-contact' : undefined}`}>
+              <button>Facebook</button>
+              <button>Twitter</button>
+              <button>Reddit</button>
+            </div>
+
+            {
+            !openFb ? <></> : <div onMouseLeave={openFeedBack} >
+              <button>Good</button>
+              <button>Meh</button>
+              <button>Bad</button>
+            </div>
+            }
+
+
+
+          </div>}
+
+          
+
+
 
     </>
 );
