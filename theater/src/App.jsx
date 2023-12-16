@@ -176,14 +176,38 @@ function App() {
       ]
     })
   }
+
   
-  const denemeRef = useRef()
+  const [userList, setUserList] = useState({
+    name: '',
+    age: ''
+  })
 
-  const [refTry, setRefTry] = useState();
+  const [userData, setUserData] = useState([]);
 
-  function refRender(){
-    setRefTry(denemeRef.current.value)
+
+  const userName = useRef();
+  const userAge = useRef();
+
+  function saveUser(parameter,newValue){
+    setUserList((prev) => {
+      return {
+        ...prev,
+        [parameter]: newValue
+      }
+    })
   }
+
+  function saveData(userList){
+    setUserData(() => {
+      return [
+        userList
+      ]
+    })
+
+    console.log(userData)
+  }
+
 
   
   return (
@@ -220,7 +244,7 @@ function App() {
 
       <div className='char-creation'>
         <input type="text" placeholder='Name' onChange={(event) => getCharInfo('name', event.target.value)} />
-        <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.target.value)} />
+        <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.tar0get.value)} />
         <input type="text" placeholder='Race' onChange={(event) => getCharInfo('race', event.target.value)} />
         <button onClick={() => new karakterYarat(newChar)}>Create!</button>
         <button onClick={()=> karakterYaratAuto()}>Test me</button>
@@ -276,9 +300,10 @@ function App() {
           </div>}
 
           
-            <input placeholder='Input Try' ref={denemeRef} />
-            <button onClick={refRender}>Save</button>
-            <p>{refTry}</p>
+          <input type="text" placeholder='Name' onChange={(event) => saveUser('name', event.target.value)} />
+          <input type="text" placeholder='Age' onChange={(event) => saveUser('age', event.target.value)}  />
+          <button onClick={() => saveData(userList)}>Save User</button>
+          {userData.map((row) => <><p>{row.name}</p> <p>{row.age}</p></>)}
 
 
     </>
