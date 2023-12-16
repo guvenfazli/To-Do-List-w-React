@@ -309,6 +309,7 @@ function App() {
                   <div className='render-list' key={row.work}>
                     <p>{row.work}</p>
                     <p>{row.date}</p>
+                    <button>Done</button>
                   
                   
                   </div>)}
