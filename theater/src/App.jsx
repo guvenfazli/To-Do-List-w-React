@@ -205,13 +205,6 @@ function App() {
     })
   }
 
-  console.log(addToDo)
-
-  console.log(toDoList)
-  
-
-  
- 
 
   
   return (
@@ -311,16 +304,16 @@ function App() {
                 <input type="date" placeholder='Date' onChange={testList} ref={toDoDate} />
                 <button onClick={addToData}>Add to Do!</button>
 
-                <p>{toDoList.map((row) => 
+                <div>{toDoList.map((row) => 
                 
-                  <div className='render-list'>
+                  <div className='render-list' key={row.work}>
                     <p>{row.work}</p>
                     <p>{row.date}</p>
                   
                   
                   </div>)}
                 
-                </p>
+                </div>
 
 
 
