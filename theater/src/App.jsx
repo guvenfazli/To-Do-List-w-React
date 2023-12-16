@@ -255,7 +255,7 @@ function App() {
 
       <div className='char-creation'>
         <input type="text" placeholder='Name' onChange={(event) => getCharInfo('name', event.target.value)} />
-        <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.tar0get.value)} />
+        <input type="text" placeholder='Age' onChange={(event) => getCharInfo('age', event.target.value)} />
         <input type="text" placeholder='Race' onChange={(event) => getCharInfo('race', event.target.value)} />
         <button onClick={() => new karakterYarat(newChar)}>Create!</button>
         <button onClick={()=> karakterYaratAuto()}>Test me</button>
