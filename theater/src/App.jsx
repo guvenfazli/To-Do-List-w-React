@@ -177,6 +177,13 @@ function App() {
     })
   }
   
+  const denemeRef = useRef()
+
+  const [refTry, setRefTry] = useState();
+
+  function refRender(){
+    setRefTry(denemeRef.current.value)
+  }
 
   
   return (
@@ -269,7 +276,9 @@ function App() {
           </div>}
 
           
-            <input placeholder='Input Try' />
+            <input placeholder='Input Try' ref={denemeRef} />
+            <button onClick={refRender}>Save</button>
+            <p>{refTry}</p>
 
 
     </>
