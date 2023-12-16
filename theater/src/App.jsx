@@ -82,11 +82,11 @@ function App() {
 
   function getUserValues(parameter, newValue){
     setInvestment((prev) => {
-      return {
-        ...prev,
-        [parameter]: +newValue
+        return {
+          ...prev,
+          [parameter]: +newValue
+        }
       }
-    }
     )
   }
 
@@ -177,37 +177,28 @@ function App() {
     })
   }
 
-  
-  const [userList, setUserList] = useState({
+ 
+
+  const [userNameState, setUserNameState] = useState({
     name: '',
     age: ''
   })
 
-  const [userData, setUserData] = useState([]);
-
-
   const userName = useRef();
   const userAge = useRef();
 
-  function saveUser(parameter,newValue){
-    setUserList((prev) => {
+  function saveUser(parameter, newValue){
+    setUserNameState((prev) => {
       return {
         ...prev,
         [parameter]: newValue
       }
     })
+    
   }
 
-  function saveData(userList){
-    setUserData(() => {
-      return [
-        userList
-      ]
-    })
-
-    console.log(userData)
-  }
-
+  
+ 
 
   
   return (
@@ -299,11 +290,14 @@ function App() {
 
           </div>}
 
+            <input type="text" placeholder='Name' ref={userName} />
+            <input type="text" placeholder='Age' />
+            <button onClick={saveUser}>Save</button>
+
+            <p>{userNameState.name}</p>
+
           
-          <input type="text" placeholder='Name' onChange={(event) => saveUser('name', event.target.value)} />
-          <input type="text" placeholder='Age' onChange={(event) => saveUser('age', event.target.value)}  />
-          <button onClick={() => saveData(userList)}>Save User</button>
-          {userData.map((row) => <><p>{row.name}</p> <p>{row.age}</p></>)}
+  
 
 
     </>
