@@ -2,6 +2,11 @@ import './App.css';
 import { useState, useRef } from 'react';
 import Welcome from './Components/Welcome';
 
+const denemeArray = ["araba", "yol", "kamyon"]
+
+denemeArray.splice(2,1)
+
+console.log(denemeArray)
 
 function App() {
 
@@ -205,7 +210,16 @@ function App() {
     })
   }
 
+  function markAsDone(index){
+    setToDoList((prev) => {
+      let updatedList = [...prev]
+      updatedList.splice(index, 1)
+      return updatedList
+    })
+  }
 
+  
+  console.log(toDoList)
   
   return (
     <>
@@ -304,15 +318,16 @@ function App() {
                 <input type="date" placeholder='Date' onChange={testList} ref={toDoDate} />
                 <button onClick={addToData}>Add to Do!</button>
 
-                <div>{toDoList.map((row) => 
+                <div>{toDoList.map((row, index) => 
                 
-                  <div className='render-list' key={row.work}>
+                <div className='render-list' key={row.work}>
                     <p>{row.work}</p>
                     <p>{row.date}</p>
-                    <button>Done</button>
-                  
-                  
-                  </div>)}
+                    <button onClick={() => markAsDone(index)}>Done</button>
+
+                </div>
+                
+               )}
                 
                 </div>
 
