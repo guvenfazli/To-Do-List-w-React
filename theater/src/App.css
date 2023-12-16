@@ -1,7 +1,14 @@
+@import url('https://fonts.cdnfonts.com/css/spline-sans');
 body{
   background-color: rgb(25, 25, 25);
   color: white;
+  font-family: 'Spline Sans', sans-serif;
 }
+
+body button{
+  font-family: 'Spline Sans', sans-serif;
+}
+
 
 .welcome-message{
   position: fixed;

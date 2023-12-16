@@ -184,6 +184,8 @@ function App() {
     age: ''
   })
 
+  const [dataList, setDataList] = useState([])
+
   const userName = useRef();
   const userAge = useRef();
 
@@ -197,6 +199,19 @@ function App() {
     })
    
   }
+
+  function saveTheData(userList){
+    setDataList((prev) => {
+      return [
+        ...prev,
+        userList
+      ]
+    })
+  }
+
+  console.log(dataList)
+
+  console.log(userList)
 
   
  
@@ -294,6 +309,7 @@ function App() {
             <input type="text" placeholder='Name' ref={userName} />
             <input type="text" placeholder='Age' ref={userAge}/>
             <button onClick={saveUser}>Save</button>
+            <button onClick={() => saveTheData(userList)}>Save the Data</button>
 
             <p>{userList.name}</p>
             <p>{userList.age}</p>
