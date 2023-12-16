@@ -179,7 +179,7 @@ function App() {
 
  
 
-  const [userNameState, setUserNameState] = useState({
+  const [userList, setUserList] = useState({
     name: '',
     age: ''
   })
@@ -187,14 +187,15 @@ function App() {
   const userName = useRef();
   const userAge = useRef();
 
-  function saveUser(parameter, newValue){
-    setUserNameState((prev) => {
+  function saveUser(){
+    setUserList((prev) => {
       return {
         ...prev,
-        [parameter]: newValue
+        name: userName.current.value,
+        age: userAge.current.value
       }
     })
-    
+   
   }
 
   
@@ -291,10 +292,11 @@ function App() {
           </div>}
 
             <input type="text" placeholder='Name' ref={userName} />
-            <input type="text" placeholder='Age' />
+            <input type="text" placeholder='Age' ref={userAge}/>
             <button onClick={saveUser}>Save</button>
 
-            <p>{userNameState.name}</p>
+            <p>{userList.name}</p>
+            <p>{userList.age}</p>
 
           
   
