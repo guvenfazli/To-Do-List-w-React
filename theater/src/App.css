@@ -63,8 +63,28 @@ body button{
   right: 50%;
   border: 1px solid red;
   color: white;
-  
-  
-  
+}
+
+.to-do{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.to-do-section{
+  width: 70%;
+  height: 100%;
+  border: 1px solid red;
+}
+
+.render-list{
+  display: flex;
+  flex-direction: row;
+}
+
+.render-list p{
+  margin-right: 20px;
 }
 

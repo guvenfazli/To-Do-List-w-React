@@ -177,41 +177,38 @@ function App() {
     })
   }
 
- 
+  const toDoRef = useRef();
+  const toDoDate = useRef();
 
-  const [userList, setUserList] = useState({
-    name: '',
-    age: ''
+  const [toDoList, setToDoList] = useState([])
+  const [addToDo, setAddToDo] = useState({
+    work: '',
+    date: ''
   })
 
-  const [dataList, setDataList] = useState([])
-
-  const userName = useRef();
-  const userAge = useRef();
-
-  function saveUser(){
-    setUserList((prev) => {
+  function testList(){
+    setAddToDo((prev) => {
       return {
         ...prev,
-        name: userName.current.value,
-        age: userAge.current.value
+        work: toDoRef.current.value,
+        date: toDoDate.current.value
       }
     })
-   
   }
 
-  function saveTheData(userList){
-    setDataList((prev) => {
+  function addToData(){
+    setToDoList((prev) => {
       return [
         ...prev,
-        userList
+        addToDo
       ]
     })
   }
 
-  console.log(dataList)
+  console.log(addToDo)
 
-  console.log(userList)
+  console.log(toDoList)
+  
 
   
  
@@ -306,13 +303,31 @@ function App() {
 
           </div>}
 
-            <input type="text" placeholder='Name' ref={userName} />
-            <input type="text" placeholder='Age' ref={userAge}/>
-            <button onClick={saveUser}>Save</button>
-            <button onClick={() => saveTheData(userList)}>Save the Data</button>
 
-            <p>{userList.name}</p>
-            <p>{userList.age}</p>
+            <div className='to-do'>
+
+              <div className='to-do-section'>
+                <input type="text" placeholder='What To Do?' onChange={testList} ref={toDoRef} />
+                <input type="date" placeholder='Date' onChange={testList} ref={toDoDate} />
+                <button onClick={addToData}>Add to Do!</button>
+
+                <p>{toDoList.map((row) => 
+                
+                  <div className='render-list'>
+                    <p>{row.work}</p>
+                    <p>{row.date}</p>
+                  
+                  
+                  </div>)}
+                
+                </p>
+
+
+
+              </div>
+
+
+            </div>
 
           
   
