@@ -50,6 +50,7 @@ body button{
 .render-list{
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .render-list p{

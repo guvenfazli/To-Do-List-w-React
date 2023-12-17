@@ -19,6 +19,10 @@ function App() {
   ]
 
   const popUp = useRef();
+
+  const [doneList, setDoneList] = useState([]);
+
+  
   
 
   const [valueNeeded, setValueNeeded] = useState(0);
@@ -209,11 +213,19 @@ function App() {
     })
   }
 
+ 
+
   function markAsDone(index){
     setToDoList((prev) => {
       let updatedList = [...prev]
       updatedList.splice(index, 1)
       return updatedList
+    })
+
+    setDoneList((prev) => {
+      let updatedDone = [...prev]
+      updatedDone.push(toDoList[index])
+      return updatedDone
     })
   }
 
@@ -225,6 +237,8 @@ function App() {
     useEffect(() => {
       getPopUp();
     }, [])
+
+    console.log(doneList)
   
   
   return (
@@ -333,6 +347,10 @@ function App() {
                )}
                 </div>
               </div>
+            </div>
+
+            <div className='done-list'>
+              {doneList.map((row) => <p>{row.work}</p>)}
             </div>
 
           
