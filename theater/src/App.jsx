@@ -238,7 +238,6 @@ function App() {
       getPopUp();
     }, [])
 
-    console.log(doneList)
   
   
   return (
@@ -349,7 +348,7 @@ function App() {
               </div>
             </div>
 
-            <div className='done-list'>
+            <div  className='done-list'>
               {doneList.map((row) => <p>{row.work}</p>)}
             </div>
 
