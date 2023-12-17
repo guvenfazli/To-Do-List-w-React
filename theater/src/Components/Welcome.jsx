@@ -6,7 +6,7 @@ const Welcome = forwardRef(function Welcome({close}, ref){
  
       <h1>Welcome to my test page, i do many tests here...</h1>
     
-      <form action="dialog">
+      <form method="dialog">
         <button>Close</button>
       </form>
     

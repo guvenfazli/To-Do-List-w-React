@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Welcome from './Components/Welcome';
 
 const denemeArray = ["araba", "yol", "kamyon"]
@@ -224,7 +224,10 @@ function App() {
     popUp.current.showModal();
   }
 
-
+ 
+    useEffect(() => {
+      getPopUp();
+    }, [])
   
   
   return (
