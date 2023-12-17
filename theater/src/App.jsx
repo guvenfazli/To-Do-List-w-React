@@ -18,6 +18,8 @@ function App() {
     {id: 5 , name: 'Onur', age: 24, position: 'IT'},
     {id: 6, name: 'Veysel', age: 24, position: 'Software Dev.'},
   ]
+
+  const popUp = useRef();
   
 
   const [valueNeeded, setValueNeeded] = useState(0);
@@ -218,12 +220,16 @@ function App() {
     })
   }
 
+  function getPopUp(){
+    popUp.current.showModal();
+  }
+
+
   
-  console.log(toDoList)
   
   return (
     <>
-      {welcome ? <Welcome close={closePopUp} /> : !welcome}
+      <Welcome ref={popUp} />
 
       <h1>How Much Value Do You Need?</h1>
       <input type="text" placeholder='Value Quantity' onChange={(event) => getValue(event)}/>

@@ -1,14 +1,17 @@
-export default function Welcome({close}){
+import { forwardRef, useRef } from "react"
+
+const Welcome = forwardRef(function Welcome({close}, ref){
   return (
-    <>
-      <div className="background-cancel"></div>
-      <div className="welcome-message">
-        <h1>Welcome to my test page, i do many tests here...</h1>
-        <button onClick={close}>Lets get started!</button>
-      </div>
+    <dialog ref={ref}>
+ 
+      <h1>Welcome to my test page, i do many tests here...</h1>
     
+      <form action="dialog">
+        <button>Close</button>
+      </form>
     
-    
-    </>
+    </dialog>
   )
-}
+})
+
+export default Welcome;
