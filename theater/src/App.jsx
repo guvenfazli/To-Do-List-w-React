@@ -6,7 +6,6 @@ const denemeArray = ["araba", "yol", "kamyon"]
 
 denemeArray.splice(2,1)
 
-console.log(denemeArray)
 
 function App() {
 
@@ -141,7 +140,6 @@ function App() {
   function karakterYaratAuto(){
     i++ 
     const yeniChar = new karakterYarat(newChar) 
-    console.log(yeniChar)
   }
 
   const [quant, setQuant] = useState(0)
@@ -151,7 +149,6 @@ function App() {
     setQuant((prev) => {
       let oldQuant = prev;
       oldQuant += 1
-      console.log(oldQuant)
       return oldQuant;  
       }
     ) 
@@ -285,7 +282,6 @@ function App() {
           if(row.id === worker.id){
             oldu = worker
           }
-          console.log(oldu)
           })
 
         return (
@@ -333,18 +329,10 @@ function App() {
                     <p>{row.work}</p>
                     <p>{row.date}</p>
                     <button onClick={() => markAsDone(index)}>Done</button>
-
                 </div>
-                
                )}
-                
                 </div>
-
-
-
               </div>
-
-
             </div>
 
           
