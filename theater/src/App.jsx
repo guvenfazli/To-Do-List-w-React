@@ -55,7 +55,7 @@ function App() {
 
   let inputHolder = createInput()
 
-  const [welcome, setWelcome] = useState(true)
+  const [welcome, setWelcome] = useState(false)
 
   function closePopUp(){
     setWelcome((prev) => !prev)
@@ -232,7 +232,7 @@ function App() {
   
   return (
     <>
-      <Welcome ref={popUp} />
+      <Welcome close={closePopUp} ref={popUp}/>
 
       <h1>How Much Value Do You Need?</h1>
       <input type="text" placeholder='Value Quantity' onChange={(event) => getValue(event)}/>
