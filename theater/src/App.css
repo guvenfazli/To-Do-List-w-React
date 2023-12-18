@@ -32,6 +32,7 @@ body button{
 }
 
 
+/* TO DO */
 
 .to-do{
   width: 100%;
@@ -41,8 +42,37 @@ body button{
   justify-content: center;
 }
 
+.to-do nav{
+  width: 10%;
+  border-right: 1px solid red;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.to-do nav button{
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  background-image: linear-gradient(.15turn,#FA9F7A 25px, #B37AFA 95px);
+  color: white;
+  transition: 1s;
+}
+
+.to-do nav button:hover{
+  background-image: linear-gradient(.15turn,#7AFAE6 25px, #FAF77A 95px);
+  color: #B37AFA;
+}
+
 .to-do-section{
-  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: start;
+  width: 100%;
   height: 100%;
   border: 1px solid red;
 }

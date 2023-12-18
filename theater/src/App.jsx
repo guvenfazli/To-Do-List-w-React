@@ -331,7 +331,21 @@ function App() {
 
             <div className='to-do'>
 
+    
+
+
+
               <div className='to-do-section'>
+
+                <nav>
+                  <h2>Project Tracker</h2>
+                  <button>My Projects</button>
+                  <button>Completed</button>
+                  <button>Trash Can</button>
+
+                </nav> 
+
+
                 <input type="text" placeholder='What To Do?' onChange={testList} ref={toDoRef} />
                 <input type="date" placeholder='Date' onChange={testList} ref={toDoDate} />
                 <button onClick={addToData}>Add to Do!</button>
@@ -349,7 +363,7 @@ function App() {
             </div>
 
             <div  className='done-list'>
-              {doneList.map((row) => <p>{row.work}</p>)}
+              {doneList.map((row) => <p key={row.work}>{row.work}</p>)}
             </div>
 
           
