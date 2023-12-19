@@ -73,6 +73,10 @@ section{
   
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Renk tersleme, icon rengini değiştirir */
+}
+
 
 .to-do-header button{
   padding: 10px;

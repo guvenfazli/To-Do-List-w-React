@@ -14,6 +14,29 @@ function App() {
   work: '',
   date: '',
  })
+
+ const [toDoList, setToDoList] = useState([])
+
+ 
+ function createWork(){
+  setWork((prev) => {
+    return {
+      ...prev,
+      work: workTitle.current.value,
+      date: workDate.current.value
+    }
+  })
+ }
+ 
+
+ function addToList(){
+  setToDoList((prev) => {
+    return [
+      ...prev,
+      work
+    ]
+  })
+ }
   
   
   return (
@@ -28,16 +51,22 @@ function App() {
             <button>Completed</button>
             <button>Trash Can</button>
           </nav>
+
           <div className='to-do-header'>
-            <input type="text" placeholder='Work' ref={workTitle} />
-            <input type="Date" placeholder='Choose' ref={workDate} />
-            <button>Add to the List!</button>
+            <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
+            <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
+            <button onClick={addToList}>Add to the List!</button>
           </div>
+
+          {toDoList.map((row) => <p>{row.work}</p>)}
         </div>
+
+
+
+
       </section>
 
-
-
+      
 
     </>
 );
