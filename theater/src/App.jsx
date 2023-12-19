@@ -59,7 +59,11 @@ function App() {
   showPopUp()
  }
 
- function removeWork(index){
+ function removeWork(){
+  showRemovePup()
+ }
+
+ function removeWorkFromList(index){
   setToDoList((prev) => {
     let updatedList = [...prev]
     updatedList.splice(index, 1)
@@ -67,7 +71,6 @@ function App() {
   })
 
   showRemovePup()
-
  }
 
  function completeWork(index){
@@ -89,7 +92,7 @@ function App() {
   return (
     <>
       <AddedPopUp open={showPup} />
-      <RemovePopUp open={removePup} decide={removeWork} />
+      <RemovePopUp open={removePup} decide={() => removeWorkFromList()} />
       <section>
    
         <div className='to-do'>
