@@ -1,4 +1,6 @@
-export default function RemovePopUp({open, decide, close}){
+import { forwardRef } from "react"
+
+const RemovePopUp = forwardRef(function RemovePopUp({open, decide, close}){
   return (
     <>
       <dialog className="dialog" open={open}>
@@ -13,4 +15,6 @@ export default function RemovePopUp({open, decide, close}){
     
     </>
   )
-}
+})
+
+export default RemovePopUp

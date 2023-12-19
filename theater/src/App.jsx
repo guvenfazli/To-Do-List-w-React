@@ -12,7 +12,7 @@ function App() {
 
  const workTitle = useRef();
  const workDate = useRef();
- const popUp = useRef();
+ const showPop = useRef();
 
  const [work, setWork] = useState({
   work: '',
@@ -99,6 +99,8 @@ function App() {
   
   return (
     <>
+
+    
       <AddedPopUp open={showPup} />
       <RemovePopUp open={removePup} close={removeWork} decide={removeWorkFromList} />
       <section>
@@ -122,14 +124,16 @@ function App() {
             <div className='work-display'>
               {toDoList.map(
                 (row, index) => 
-                  <div className='work' key={row.work}>
+                  <div ref={index} className='work' key={row.work}>
                     <p>
                       {row.work}
                     </p>
 
-                    <p>{row.date}</p>
+                    <p>
+                      {row.date}
+                    </p>
 
-                    <button onClick={() => removeWork(index)} className='remove-btn'>Remove</button>
+                    <button onClick={removeWork} className='remove-btn'>Remove</button>
                     <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
                   </div>
                 )
