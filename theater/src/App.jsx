@@ -124,7 +124,7 @@ function App() {
             <div className='work-display'>
               {toDoList.map(
                 (row, index) => 
-                  <div ref={index} className='work' key={row.work}>
+                  <div className='work' key={row.work}>
                     <p>
                       {row.work}
                     </p>
