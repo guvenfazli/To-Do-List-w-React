@@ -2,9 +2,7 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import Welcome from './Components/Welcome';
 
-const denemeArray = ["araba", "yol", "kamyon"]
 
-denemeArray.splice(2,1)
 
 
 function App() {
