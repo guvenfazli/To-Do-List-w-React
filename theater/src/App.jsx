@@ -1,7 +1,9 @@
 import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
+import RemovePopUp from './Components/Remove';
 import Welcome from './Components/Welcome';
+
 
 
 
@@ -23,9 +25,15 @@ function App() {
 
  const [showPup, setShowPup] = useState(false)
 
+ const [removePup, setRemovePup] = useState(false)
+
  function showPopUp(){
   setShowPup(true)
   setTimeout(() => {setShowPup(false)}, 2000)
+ }
+
+ function showRemovePup(){
+  setRemovePup((prev) => !prev);
  }
 
  
@@ -57,6 +65,9 @@ function App() {
     updatedList.splice(index, 1)
     return updatedList
   })
+
+  showRemovePup()
+
  }
 
  function completeWork(index){
@@ -78,6 +89,7 @@ function App() {
   return (
     <>
       <AddedPopUp open={showPup} />
+      <RemovePopUp open={removePup} decide={removeWork} />
       <section>
    
         <div className='to-do'>

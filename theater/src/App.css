@@ -141,7 +141,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 25px;
   top: 15%;
   transition: 2;
-  
+}
+
+.dialog button{
+  background-color: #FFAC7B;
+  color: #FFFFFF;
 }
 
 
