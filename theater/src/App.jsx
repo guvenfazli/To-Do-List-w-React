@@ -102,7 +102,7 @@ function App() {
 
     
       <AddedPopUp open={showPup} />
-      <RemovePopUp open={removePup} close={removeWork} decide={removeWorkFromList} />
+      
       <section>
    
         <div className='to-do'>
@@ -132,7 +132,10 @@ function App() {
                     <p>
                       {row.date}
                     </p>
-
+                    <RemovePopUp open={removePup}>
+                        <button onClick={() => removeWorkFromList(index)}>Yes</button>
+                        <button onClick={removeWork}>No</button>
+                    </RemovePopUp>
                     <button onClick={removeWork} className='remove-btn'>Remove</button>
                     <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
                   </div>
