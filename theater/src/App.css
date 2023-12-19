@@ -102,10 +102,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .remove-btn{
-  padding: 5px;
+  padding: 7px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  background-color: #FF5E5E;
+  color: white;
 }
 
 .work p{
