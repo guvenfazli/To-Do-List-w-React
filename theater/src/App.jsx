@@ -121,7 +121,6 @@ function App() {
 
         </div>
 
-        <button onClick={showPopUp}>Deneme</button>
 
       </section>
 
