@@ -52,13 +52,22 @@ function App() {
             <button>Trash Can</button>
           </nav>
 
-          <div className='to-do-header'>
-            <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
-            <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
-            <button onClick={addToList}>Add to the List!</button>
+          <div className='current-page'>
+            <div className='to-do-header'>
+              <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
+              <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
+              <button onClick={addToList}>Add to the List!</button>
+            </div>
+
+            <div className='work-display'>
+              {toDoList.map((row) => <p>{row.work}</p>)}
+
+            </div>
+
           </div>
 
-          {toDoList.map((row) => <p>{row.work}</p>)}
+
+
         </div>
 
 
