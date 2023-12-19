@@ -93,5 +93,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   height: 100%;
 }
 
+.work{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+.remove-btn{
+  padding: 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.work p{
+  margin-right: 35px;
+  padding-left: 15px;
+}
+
+
+
+
+
+
+
 
 

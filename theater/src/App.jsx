@@ -60,7 +60,22 @@ function App() {
             </div>
 
             <div className='work-display'>
-              {toDoList.map((row) => <p>{row.work}</p>)}
+              {toDoList.map(
+                (row) => 
+                  <div className='work' key={row.work}>
+                    <p>
+                      {row.work}
+                    </p>
+
+                    <p>{row.date}</p>
+
+                    <button className='remove-btn'>Remove</button>
+                  </div>
+                )
+              }
+
+
+
 
             </div>
 
