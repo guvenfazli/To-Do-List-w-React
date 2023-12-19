@@ -22,6 +22,8 @@ function App() {
 
   const [doneList, setDoneList] = useState([]);
 
+  console.log(doneList)
+
   
   
 
