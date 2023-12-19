@@ -7,7 +7,13 @@ import Welcome from './Components/Welcome';
 
 function App() {
 
- 
+ const workTitle = useRef();
+ const workDate = useRef();
+
+ const [work, setWork] = useState({
+  work: '',
+  date: '',
+ })
   
   
   return (
@@ -23,8 +29,9 @@ function App() {
             <button>Trash Can</button>
           </nav>
           <div className='to-do-header'>
-            <input type="text" placeholder='Work' />
-            <input type="Date" />
+            <input type="text" placeholder='Work' ref={workTitle} />
+            <input type="Date" placeholder='Choose' ref={workDate} />
+            <button>Add to the List!</button>
           </div>
         </div>
       </section>
