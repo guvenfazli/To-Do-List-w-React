@@ -1,5 +1,7 @@
+import './Tests.css'
 import { useState, useRef, useEffect } from 'react';
 import Welcome from './Components/Welcome';
+
 
 export default function TestComp(){
 
