@@ -109,8 +109,8 @@ function App() {
 
           <nav>
             <h2>Project Manager</h2>
-            <button>My Projects</button>
-            <button>Completed</button>
+            <button>My Projects ({toDoList.length})</button>
+            <button>Completed ({completeList.length})</button>
             <button>Trash Can</button>
           </nav>
 
@@ -142,7 +142,7 @@ function App() {
                    
                     <button onClick={removeWork} className='remove-btn'>Remove</button>
                     <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
-                    
+
                   </div>
              
                 )
