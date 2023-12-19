@@ -37,6 +37,14 @@ function App() {
     ]
   })
  }
+
+ function removeWork(index){
+  setToDoList((prev) => {
+    let updatedList = [...prev]
+    updatedList.splice(index, 1)
+    return updatedList
+  })
+ }
   
   
   return (
@@ -61,7 +69,7 @@ function App() {
 
             <div className='work-display'>
               {toDoList.map(
-                (row) => 
+                (row, index) => 
                   <div className='work' key={row.work}>
                     <p>
                       {row.work}
@@ -69,7 +77,8 @@ function App() {
 
                     <p>{row.date}</p>
 
-                    <button className='remove-btn'>Remove</button>
+                    <button onClick={() => removeWork(index)} className='remove-btn'>Remove</button>
+                    <button className='complete-btn'>Complete</button>
                   </div>
                 )
               }
