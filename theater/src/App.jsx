@@ -17,6 +17,8 @@ function App() {
 
  const [toDoList, setToDoList] = useState([])
 
+ const [completeList, setCompleteList] = useState([])
+
  
  function createWork(){
   setWork((prev) => {
@@ -44,6 +46,21 @@ function App() {
     updatedList.splice(index, 1)
     return updatedList
   })
+ }
+
+ function completeWork(index){
+  setToDoList((prev) => {
+    let updatedList = [...prev]
+    updatedList.splice(index, 1)
+    return updatedList
+  })
+
+  setCompleteList((prev) => {
+    let doneList = [...prev]
+    doneList.push(toDoList[index])
+    return doneList
+  })
+
  }
   
   
@@ -78,7 +95,7 @@ function App() {
                     <p>{row.date}</p>
 
                     <button onClick={() => removeWork(index)} className='remove-btn'>Remove</button>
-                    <button className='complete-btn'>Complete</button>
+                    <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
                   </div>
                 )
               }
@@ -94,7 +111,7 @@ function App() {
 
         </div>
 
-
+          {console.log(completeList)}
 
 
       </section>
