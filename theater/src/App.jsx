@@ -107,12 +107,7 @@ function App() {
 
           </div>
 
-
-
         </div>
-
-          {console.log(completeList)}
-
 
       </section>
 
