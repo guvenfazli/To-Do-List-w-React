@@ -68,7 +68,7 @@ section{
 }
 
 .to-do-header input::placeholder{
-  color: white;
+  color: gray;
   font-family: 'Spline Sans', sans-serif;
   
 }
@@ -145,7 +145,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dialog button{
   background-color: #FFAC7B;
-  color: #FFFFFF;
+  color: black;
+  margin-bottom: 15px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.choose-section{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 

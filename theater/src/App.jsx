@@ -49,14 +49,22 @@ function App() {
  
 
  function addToList(){
-  setToDoList((prev) => {
-    return [
-      ...prev,
-      work
-    ]
-  })
 
-  showPopUp()
+  if(workTitle.current.value === '' || workDate.current.value === '') {
+    alert('Please Enter Valid Date or Task!')
+  } else {
+    setToDoList((prev) => {
+      return [
+        ...prev,
+        work
+      ]
+    })
+    workTitle.current.value = '';
+    workDate.current.value = '';
+  
+    showPopUp()
+  }
+
  }
 
  function removeWork(){
@@ -92,7 +100,7 @@ function App() {
   return (
     <>
       <AddedPopUp open={showPup} />
-      <RemovePopUp open={removePup} decide={() => removeWorkFromList()} />
+      <RemovePopUp open={removePup} close={removeWork} decide={removeWorkFromList} />
       <section>
    
         <div className='to-do'>
