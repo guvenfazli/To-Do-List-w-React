@@ -124,7 +124,9 @@ function App() {
             <div className='work-display'>
               {toDoList.map(
                 (row, index) => 
+
                   <div className='work' key={row.work}>
+ 
                     <p>
                       {row.work}
                     </p>
@@ -132,18 +134,19 @@ function App() {
                     <p>
                       {row.date}
                     </p>
+
                     <RemovePopUp open={removePup}>
-                        <button onClick={() => removeWorkFromList(index)}>Yes</button>
-                        <button onClick={removeWork}>No</button>
+                      <button onClick={() => removeWorkFromList(index)}>Yes {index}</button>
+                      <button onClick={removeWork}>No</button>
                     </RemovePopUp>
+                   
                     <button onClick={removeWork} className='remove-btn'>Remove</button>
                     <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
+                    
                   </div>
+             
                 )
               }
-
-
-
 
             </div>
 
