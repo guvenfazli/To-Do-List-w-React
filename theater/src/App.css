@@ -133,7 +133,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 
-
+.dialog{
+  padding: 0px 15px;
+  background-color: #FCDCC7;
+  color: #333333;
+  position: fixed;
+  border-radius: 25px;
+  top: 15%;
+  transition: 2;
+  
+}
 
 
 

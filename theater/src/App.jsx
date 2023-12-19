@@ -1,5 +1,6 @@
 import './App.css';
 import { useState, useRef, useEffect } from 'react';
+import AddedPopUp from './Components/Added';
 import Welcome from './Components/Welcome';
 
 
@@ -9,6 +10,7 @@ function App() {
 
  const workTitle = useRef();
  const workDate = useRef();
+ const popUp = useRef();
 
  const [work, setWork] = useState({
   work: '',
@@ -18,6 +20,13 @@ function App() {
  const [toDoList, setToDoList] = useState([])
 
  const [completeList, setCompleteList] = useState([])
+
+ const [showPup, setShowPup] = useState(false)
+
+ function showPopUp(){
+  setShowPup(true)
+  setTimeout(() => {setShowPup(false)}, 2000)
+ }
 
  
  function createWork(){
@@ -38,6 +47,8 @@ function App() {
       work
     ]
   })
+
+  showPopUp()
  }
 
  function removeWork(index){
@@ -66,6 +77,7 @@ function App() {
   
   return (
     <>
+      <AddedPopUp open={showPup} />
       <section>
    
         <div className='to-do'>
@@ -108,6 +120,8 @@ function App() {
           </div>
 
         </div>
+
+        <button onClick={showPopUp}>Deneme</button>
 
       </section>
 

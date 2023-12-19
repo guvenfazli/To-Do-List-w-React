@@ -1,7 +1,7 @@
-export default function AddedPopUp(){
+export default function AddedPopUp({open}){
   return (
     <>
-      <dialog>
+      <dialog className="dialog" open={open}>
         <h4>Task is succesfully added!</h4>
       </dialog>
     
