@@ -140,8 +140,8 @@ function App() {
             </div>
 
             <div className='work-display'>
-              {currentTask ? toDoList.map((renderTask) => (<RenderTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>)) : ''} 
-              {completeTask ? completeList.map((doneTask) => (<CompleteTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...doneTask} />)) : ''}
+              {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>)) : ''} 
+              {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={removeWorkFromList} {...doneTask} />)) : ''}
 
 
  
