@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
 import RemovePopUp from './Components/Remove';
+import RenderTasks from './Components/GeneralTasks';
 import Welcome from './Components/Welcome';
 
 
@@ -122,6 +123,10 @@ function App() {
             </div>
 
             <div className='work-display'>
+              {toDoList.map((renderTask) => (<RenderTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>))}
+
+
+              
               {toDoList.map(
                 (row, index) => 
 
