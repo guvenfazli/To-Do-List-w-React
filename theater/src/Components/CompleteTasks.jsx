@@ -1,5 +1,3 @@
-import RemovePopUp from "./Remove"
-
 export default function CompleteTasks({work, date}){
   return (
   <>
