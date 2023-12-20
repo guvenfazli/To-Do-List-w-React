@@ -2,7 +2,8 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
 import RemovePopUp from './Components/Remove';
-import RenderTasks from './Components/GeneralTasks';
+import RenderTasks from './Components/RenderTasks';
+import CompleteTasks from './Components/CompleteTasks';
 import Welcome from './Components/Welcome';
 
 
@@ -27,6 +28,22 @@ function App() {
  const [showPup, setShowPup] = useState(false)
 
  const [removePup, setRemovePup] = useState(false)
+
+ const [currentTask, setCurrentTask] = useState(true)
+
+ const [completeTask, setCompleteTask] = useState(false)
+
+ function showSelect(){
+    setCurrentTask(true)
+    setCompleteTask(false)
+  }
+
+  function renderComplete(){
+    setCompleteTask(true)
+    setCurrentTask(false)
+  }
+
+ 
 
  function showPopUp(){
   setShowPup(true)
@@ -110,8 +127,8 @@ function App() {
 
           <nav>
             <h2>Project Manager</h2>
-            <button>My Projects ({toDoList.length})</button>
-            <button>Completed ({completeList.length})</button>
+            <button onClick={showSelect}>My Projects ({toDoList.length})</button>
+            <button onClick={renderComplete}>Completed ({completeList.length})</button>
             <button>Trash Can</button>
           </nav>
 
@@ -123,11 +140,24 @@ function App() {
             </div>
 
             <div className='work-display'>
-              {toDoList.map((renderTask) => (<RenderTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>))}
+              {currentTask ? toDoList.map((renderTask) => (<RenderTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>)) : ''} 
+              {completeTask ? completeList.map((doneTask) => (<CompleteTasks complete={completeWork} removeWork={removeWork} remove={removeWorkFromList} {...doneTask} />)) : ''}
 
 
-              
-              {toDoList.map(
+ 
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {console.log(completeList)}
+      </section>
+
+
+             
+      {toDoList.map(
                 (row, index) => 
 
                   <div className='work' key={row.work}>
@@ -152,17 +182,6 @@ function App() {
              
                 )
               }
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-      </section>
-
-      
 
     </>
 );
