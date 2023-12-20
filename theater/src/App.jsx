@@ -140,8 +140,8 @@ function App() {
             </div>
 
             <div className='work-display'>
-              {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} removeWork={removeWork} remove={removeWorkFromList} {...renderTask}/>)) : ''} 
-              {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={removeWorkFromList} {...doneTask} />)) : ''}
+              {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} open={removePup} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...renderTask}/>)) : ''} 
+              {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...doneTask} />)) : ''}
 
 
  
@@ -152,36 +152,11 @@ function App() {
 
         </div>
 
-        {console.log(completeList)}
       </section>
 
 
              
-      {toDoList.map(
-                (row, index) => 
 
-                  <div className='work' key={row.work}>
- 
-                    <p>
-                      {row.work}
-                    </p>
-
-                    <p>
-                      {row.date}
-                    </p>
-
-                    <RemovePopUp open={removePup}>
-                      <button onClick={() => removeWorkFromList(index)}>Yes {index}</button>
-                      <button onClick={removeWork}>No</button>
-                    </RemovePopUp>
-                   
-                    <button onClick={removeWork} className='remove-btn'>Remove</button>
-                    <button onClick={() => completeWork(index)} className='complete-btn'>Complete</button>
-
-                  </div>
-             
-                )
-              }
 
     </>
 );

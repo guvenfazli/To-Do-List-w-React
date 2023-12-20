@@ -2,9 +2,7 @@ import RemovePopUp from "./Remove"
 
 export default function CompleteTasks({work, date}){
   return (
-  
   <>
-
         <div className='work' key={work}>
 
           <p>
@@ -15,18 +13,7 @@ export default function CompleteTasks({work, date}){
             {date}
           </p>
         </div>
-    
 
-  
-
-
-  
-  
-  
-  
-  
-  
-  
   
   </>
   )

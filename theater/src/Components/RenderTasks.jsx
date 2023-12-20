@@ -1,6 +1,6 @@
 import RemovePopUp from "./Remove"
 
-export default function RenderTasks({work, date, removePup, remove, removeWork, complete}){
+export default function RenderTasks({work, date, open, remove, removeWork, complete}){
   return (
   
   <>
@@ -15,7 +15,7 @@ export default function RenderTasks({work, date, removePup, remove, removeWork, 
             {date}
           </p>
 
-          <RemovePopUp open={removePup}>
+          <RemovePopUp open={open}>
             <button onClick={remove}>Yes</button>
             <button onClick={removeWork}>No</button>
           </RemovePopUp>
