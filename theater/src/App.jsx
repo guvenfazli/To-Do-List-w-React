@@ -152,7 +152,6 @@ function App() {
 
         </div>
 
-        {console.log(currentTask)}
 
       </section>
 
