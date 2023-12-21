@@ -56,6 +56,16 @@ function App() {
   })
  }
 
+ function addAsChild(index){
+  setGuestList((prev) => {
+    let updatedObj = {...prev}
+
+    updatedObj.child = [...updatedObj.child, updatedObj.adult[index]]
+
+    return updatedObj;
+  })
+ }
+
  const [showPup, setShowPup] = useState(false)
 
  const [removePup, setRemovePup] = useState(false)
@@ -200,9 +210,8 @@ function App() {
 
         {console.log(guestList)}
 
-        {guestList[guestPerson].map((row) => <p>{row}</p>)}
+        {guestList[guestPerson].map((row, index) => <><p>{row}</p> <button onClick={() => addAsChild(index)}>Add as Child {index}</button></>)}
         
-
 
       </div>
              
