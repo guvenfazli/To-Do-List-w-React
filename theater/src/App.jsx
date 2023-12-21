@@ -60,14 +60,11 @@ function App() {
   setGuestList((prev) => {
     let updatedObj = {...prev}
     updatedObj.child = [...updatedObj.child, updatedObj.adult[index]]
+    updatedObj.adult = [...updatedObj.adult]
+    updatedObj.adult.splice(index, 1)
     return updatedObj;
   })
 
-  setGuestList((prev) => {
-    let updatedObj = {...prev}
-    updatedObj.adult.splice(index,1)
-    return updatedObj;
-  })
  }
 
  const [showPup, setShowPup] = useState(false)
