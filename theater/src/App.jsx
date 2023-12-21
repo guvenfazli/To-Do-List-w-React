@@ -213,7 +213,7 @@ function App() {
 
             <div className='work-display'>
 
-              {taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>)}
+              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p></div>)}
 
 
 
