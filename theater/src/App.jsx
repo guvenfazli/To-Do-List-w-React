@@ -39,6 +39,16 @@ function App() {
   showPopUp();
  }
 
+ function markAsCompleted(index){
+  setTaskList((prev) => {
+    let updatedTask = {...prev}
+    updatedTask.completed = [...updatedTask.completed, updatedTask.available[index]]
+    updatedTask.available = [...updatedTask.available]
+    updatedTask.available.splice(index, 1)
+    return updatedTask
+  })
+ }
+
  const [toDoList, setToDoList] = useState([])
 
  const [completeList, setCompleteList] = useState([])
@@ -187,8 +197,8 @@ function App() {
 
           <nav>
             <h2>Project Manager</h2>
-            <button onClick={showSelect}>My Projects ({taskList.available.length})</button>
-            <button onClick={renderComplete}>Completed ({taskList.completed.length})</button>
+            <button onClick={() => setRenderTask('available')}>My Projects ({taskList.available.length})</button>
+            <button onClick={() => setRenderTask('completed')}>Completed ({taskList.completed.length})</button>
             <button>Trash Can</button>
           </nav>
 
@@ -203,7 +213,7 @@ function App() {
 
             <div className='work-display'>
 
-              {taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button className='complete-btn'>Complete</button></div>)}
+              {taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>)}
 
 
 
