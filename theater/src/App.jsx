@@ -26,6 +26,8 @@ function App() {
   completed: []
  })
 
+ const [removeAnim, setRemoveAnim] = useState(true)
+
  const [renderTask, setRenderTask] = useState('available')
 
  function addAsTask(){
@@ -52,12 +54,18 @@ function App() {
  }
 
  function removeTask(index){
-  setTaskList((prev) => {
-    let updatedTask = {...prev}
-    updatedTask.available = [...updatedTask.available]
-    updatedTask.available.splice(index, 1)
-    return updatedTask;
-  })
+  setRemoveAnim(false)
+
+  setTimeout(() => {
+    setTaskList((prev) => {
+      let updatedTask = {...prev}
+      updatedTask.available = [...updatedTask.available]
+      updatedTask.available.splice(index, 1)
+      return updatedTask;
+    })
+  }, 1500)
+
+
  }
 
  const [toDoList, setToDoList] = useState([])
@@ -224,7 +232,7 @@ function App() {
 
             <div className='work-display'>
 
-              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row) => <div className='work'><p>{row}</p></div>)}
+              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className={removeAnim ? 'work' : 'remove-task-animation'}><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row) => <div className='work'><p>{row}</p></div>)}
 
 
 
@@ -259,7 +267,10 @@ function App() {
         
         
       </div>
-             
+
+
+      <p className={removeAnim ? '' : 'remove-task-animation'}>Selam</p>       
+      <button onClick={() => setRemoveAnim(false)}>Make it Invis</button>
 
 
     </>

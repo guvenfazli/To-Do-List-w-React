@@ -208,7 +208,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   justify-content: space-around;
 }
 
-
+.remove-task-animation{
+  opacity: 0;
+  transition: 1s;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-bottom: 1px solid black;
+  align-items: center;
+}
 
 
 
