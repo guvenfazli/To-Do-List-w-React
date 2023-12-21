@@ -26,6 +26,8 @@ function App() {
   completed: []
  })
 
+ const [renderTask, setRenderTask] = useState('available')
+
  function addAsTask(){
   setTaskList((prev) => {
     let updatedTask = {...prev}
@@ -185,8 +187,8 @@ function App() {
 
           <nav>
             <h2>Project Manager</h2>
-            <button onClick={showSelect}>My Projects ({toDoList.length})</button>
-            <button onClick={renderComplete}>Completed ({completeList.length})</button>
+            <button onClick={showSelect}>My Projects ({taskList.available.length})</button>
+            <button onClick={renderComplete}>Completed ({taskList.completed.length})</button>
             <button>Trash Can</button>
           </nav>
 
@@ -200,6 +202,11 @@ function App() {
             {console.log(taskList)}
 
             <div className='work-display'>
+
+              {taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button className='complete-btn'>Complete</button></div>)}
+
+
+
               {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} open={removePup} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...renderTask}/>)) : ''} 
               {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...doneTask} />)) : ''}
 
