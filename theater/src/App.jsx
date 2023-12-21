@@ -255,7 +255,7 @@ function App() {
 
         {guestList[guestPerson].map((row, index) => <><p>{row}</p> <button onClick={() => addAsChild(index)}>Add as Child {index}</button></>)}
         
-
+        <p>Daily Check...</p>
       </div>
              
 
