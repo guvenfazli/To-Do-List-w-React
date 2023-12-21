@@ -173,8 +173,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   
 }
 
-
-
 .work p{
   margin-right: 35px;
   padding-left: 15px;
@@ -216,6 +214,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
   border-bottom: 1px solid black;
   align-items: center;
+}
+
+.remove-task-animation p{
+  margin-right: 35px;
+  padding-left: 15px;
+}
+
+.remove-task-animation button{
+  margin-right: 25px;
 }
 
 

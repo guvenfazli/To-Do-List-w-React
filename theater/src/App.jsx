@@ -38,19 +38,25 @@ function App() {
     return updatedTask;
   })
 
-
-
   showPopUp();
  }
 
  function markAsCompleted(index){
-  setTaskList((prev) => {
-    let updatedTask = {...prev}
-    updatedTask.completed = [...updatedTask.completed, updatedTask.available[index]]
-    updatedTask.available = [...updatedTask.available]
-    updatedTask.available.splice(index, 1)
-    return updatedTask
-  })
+  setRemoveAnim(false)
+
+  setTimeout(() => {
+    setTaskList((prev) => {
+      let updatedTask = {...prev}
+      updatedTask.completed = [...updatedTask.completed, updatedTask.available[index]]
+      updatedTask.available = [...updatedTask.available]
+      updatedTask.available.splice(index, 1)
+      setRemoveAnim(true)
+      return updatedTask
+    })
+  }, 500)
+
+
+
  }
 
  function removeTask(index){
@@ -61,9 +67,10 @@ function App() {
       let updatedTask = {...prev}
       updatedTask.available = [...updatedTask.available]
       updatedTask.available.splice(index, 1)
+      setRemoveAnim(true)
       return updatedTask;
     })
-  }, 1500)
+  }, 500)
 
 
  }
@@ -269,8 +276,7 @@ function App() {
       </div>
 
 
-      <p className={removeAnim ? '' : 'remove-task-animation'}>Selam</p>       
-      <button onClick={() => setRemoveAnim(false)}>Make it Invis</button>
+
 
 
     </>
