@@ -31,14 +31,21 @@ function App() {
  const [renderTask, setRenderTask] = useState('available')
 
  function addAsTask(){
-  setTaskList((prev) => {
-    let updatedTask = {...prev}
-    updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
-    updatedTask.completed = [...updatedTask.completed]
-    return updatedTask;
-  })
 
-  showPopUp();
+  if(workTitle.current.value === '' || workDate.current.value === ''){
+    alert('Please enter a valid task!')
+  } else {
+    setTaskList((prev) => {
+      let updatedTask = {...prev}
+      updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
+      updatedTask.completed = [...updatedTask.completed]
+      return updatedTask;
+    })
+  
+    showPopUp();
+  }
+
+
  }
 
  function markAsCompleted(index){
@@ -53,7 +60,7 @@ function App() {
       setRemoveAnim(true)
       return updatedTask
     })
-  }, 500)
+  }, 1000)
 
 
 
@@ -70,7 +77,7 @@ function App() {
       setRemoveAnim(true)
       return updatedTask;
     })
-  }, 500)
+  }, 1000)
 
 
  }
