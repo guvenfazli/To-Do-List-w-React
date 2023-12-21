@@ -209,8 +209,6 @@ function App() {
 
         <button onClick={() => setGuestPerson('adult')}>Adults</button> <button onClick={() => setGuestPerson('child')}>Children</button>
 
-        {console.log(guestList)}
-
         {guestList[guestPerson].map((row, index) => <><p>{row}</p> <button onClick={() => addAsChild(index)}>Add as Child {index}</button></>)}
         
 
