@@ -6,8 +6,12 @@ import RenderTasks from './Components/RenderTasks';
 import CompleteTasks from './Components/CompleteTasks';
 import Welcome from './Components/Welcome';
 
+const denemeObj = {
+  adult: ['Güven', 'Ahmet', 'Mehmet'],
+  child: ['Ayşe', 'Selen', 'Fevzi']
+}
 
-
+console.log(denemeObj)
 
 
 function App() {
@@ -24,6 +28,11 @@ function App() {
  const [toDoList, setToDoList] = useState([])
 
  const [completeList, setCompleteList] = useState([])
+
+ const [guestList, setGuestList] = useState({
+  adult: [],
+  child: []
+ })
 
  const [showPup, setShowPup] = useState(false)
 
@@ -157,8 +166,14 @@ function App() {
 
       <div className='test-section'>
 
+        <input type="text" placeholder='Name' />
 
+        <input type="text" placeholder='Age' />
 
+        <p>Selam</p>
+
+        {denemeObj.adult.map((row) => <p>{row}</p>)}
+        {denemeObj.child.map((row) => <p>{row}</p>)}
 
       </div>
              
