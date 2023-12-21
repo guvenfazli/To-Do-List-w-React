@@ -31,16 +31,21 @@ function App() {
  const [renderTask, setRenderTask] = useState('available')
 
  function addAsTask(){
+  setRemoveAnim(false)
 
   if(workTitle.current.value === '' || workDate.current.value === ''){
     alert('Please enter a valid task!')
   } else {
-    setTaskList((prev) => {
-      let updatedTask = {...prev}
-      updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
-      updatedTask.completed = [...updatedTask.completed]
-      return updatedTask;
-    })
+    setTimeout(() => {
+      setTaskList((prev) => {
+        let updatedTask = {...prev}
+        updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
+        updatedTask.completed = [...updatedTask.completed]
+        setRemoveAnim(true)
+        return updatedTask;
+      })
+    }, 1000)
+
   
     showPopUp();
   }

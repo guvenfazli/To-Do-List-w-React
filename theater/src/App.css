@@ -146,7 +146,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #ADD8E6;
   align-items: center;
   transition: 1s;
 }
@@ -212,7 +212,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid #ADD8E6;
   align-items: center;
 }
 
