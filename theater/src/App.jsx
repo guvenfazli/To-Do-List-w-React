@@ -186,6 +186,8 @@ function App() {
 
         <p>Selam</p>
 
+        <button>Adults</button> <button>Children</button>
+
         {console.log(guestList)}
 
 
