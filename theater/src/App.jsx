@@ -244,7 +244,8 @@ function App() {
             <div className='to-do-header'>
               <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
               <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
-              {workTitle.current.value && workDate.current.value ? <button className='add-button' onClick={addAsTask}>Add to the List!</button> : <button className='non-functional-button'>Enter Valid Values</button>}
+              {!workTitle && !workDate ? <button className='non-functional-button'>Enter Valid Values</button> : <button className='add-button' onClick={addAsTask}>Add to the List!</button>}
+
               
             </div>
 
@@ -271,22 +272,6 @@ function App() {
 
       </section>
 
-      <div className='test-section'>
-
-        <input ref={guestName} type="text" placeholder='Name' />
-
-        <input ref={guestAge} type="text" placeholder='Age' />
-
-        <button onClick={() => addGuest()}>Add Guest</button>
-
-        <p>Selam</p>
-
-        <button onClick={() => setGuestPerson('adult')}>Adults</button> <button onClick={() => setGuestPerson('child')}>Children</button>
-
-        {guestList[guestPerson].map((row, index) => <><p>{row}</p> <button onClick={() => addAsChild(index)}>Add as Child {index}</button></>)}
-        
-        
-      </div>
 
 
 
