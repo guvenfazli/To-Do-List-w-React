@@ -11,6 +11,8 @@ const denemeObj = {
   child: ['Ayşe', 'Selen', 'Fevzi']
 }
 
+denemeObj.adult.push('Kerem')
+
 console.log(denemeObj)
 
 
@@ -18,7 +20,8 @@ function App() {
 
  const workTitle = useRef();
  const workDate = useRef();
- const showPop = useRef();
+ const guestName = useRef();
+ const guestAge = useRef();
 
  const [work, setWork] = useState({
   work: '',
@@ -33,6 +36,18 @@ function App() {
   adult: [],
   child: []
  })
+
+ function addGuest(){
+  setGuestList((prev) => {
+    let updatedObj = {...prev}
+    if(guestAge.current.value <= 12){
+      updatedObj.child.push(guestName.current.value)
+    } else if (guestAge.current.value > 12){
+      updatedObj.adult.push(guestName.current.value)
+    }
+    return updatedObj
+  })
+ }
 
  const [showPup, setShowPup] = useState(false)
 
@@ -166,11 +181,15 @@ function App() {
 
       <div className='test-section'>
 
-        <input type="text" placeholder='Name' />
+        <input ref={guestName} type="text" placeholder='Name' />
 
-        <input type="text" placeholder='Age' />
+        <input ref={guestAge} type="text" placeholder='Age' />
+
+        <button onClick={() => addGuest()}>Add Guest</button>
 
         <p>Selam</p>
+
+        {console.log(guestList)}
 
         {denemeObj.adult.map((row) => <p>{row}</p>)}
         {denemeObj.child.map((row) => <p>{row}</p>)}
