@@ -59,9 +59,13 @@ function App() {
  function addAsChild(index){
   setGuestList((prev) => {
     let updatedObj = {...prev}
-
     updatedObj.child = [...updatedObj.child, updatedObj.adult[index]]
+    return updatedObj;
+  })
 
+  setGuestList((prev) => {
+    let updatedObj = {...prev}
+    updatedObj.adult.splice(index,1)
     return updatedObj;
   })
  }
