@@ -21,6 +21,22 @@ function App() {
   date: '',
  })
 
+ const [taskList, setTaskList] = useState({
+  available: [],
+  completed: []
+ })
+
+ function addAsTask(){
+  setTaskList((prev) => {
+    let updatedTask = {...prev}
+    updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
+    updatedTask.completed = [...updatedTask.completed]
+    return updatedTask;
+  })
+
+  showPopUp();
+ }
+
  const [toDoList, setToDoList] = useState([])
 
  const [completeList, setCompleteList] = useState([])
@@ -178,8 +194,10 @@ function App() {
             <div className='to-do-header'>
               <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
               <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
-              <button onClick={addToList}>Add to the List!</button>
+              <button onClick={addAsTask}>Add to the List!</button>
             </div>
+
+            {console.log(taskList)}
 
             <div className='work-display'>
               {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} open={removePup} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...renderTask}/>)) : ''} 
