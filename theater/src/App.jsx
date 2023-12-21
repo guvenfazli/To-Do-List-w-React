@@ -49,6 +49,15 @@ function App() {
   })
  }
 
+ function removeTask(index){
+  setTaskList((prev) => {
+    let updatedTask = {...prev}
+    updatedTask.available = [...updatedTask.available]
+    updatedTask.available.splice(index, 1)
+    return updatedTask;
+  })
+ }
+
  const [toDoList, setToDoList] = useState([])
 
  const [completeList, setCompleteList] = useState([])
@@ -213,7 +222,7 @@ function App() {
 
             <div className='work-display'>
 
-              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p></div>)}
+              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p></div>)}
 
 
 
