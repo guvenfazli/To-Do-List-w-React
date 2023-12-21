@@ -36,6 +36,8 @@ function App() {
     return updatedTask;
   })
 
+
+
   showPopUp();
  }
 
@@ -222,14 +224,14 @@ function App() {
 
             <div className='work-display'>
 
-              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p></div>)}
+              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className='work'><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row) => <div className='work'><p>{row}</p></div>)}
 
 
 
               {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} open={removePup} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...renderTask}/>)) : ''} 
               {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...doneTask} />)) : ''}
 
-
+              
  
 
             </div>

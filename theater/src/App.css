@@ -46,6 +46,31 @@ section{
   cursor: pointer;
 }
 
+.to-do nav button:hover{
+  animation: changeColor 3s infinite alternate;
+  animation-delay: 0.1s;
+  transition-delay: 0.1s;
+  color: black;
+}
+
+
+@keyframes changeColor {
+  0% {
+    background-color: #FF6347; /* Daha koyu bir kırmızı tonu */
+  }
+  25% {
+    background-color: #FFA07A; /* Açık bir somon tonu */
+  }
+  50% {
+    background-color: #FFD700; /* Parlak bir sarı tonu */
+  }
+  75% {
+    background-color: #98FB98; /* Hafif bir yeşil tonu */
+  }
+  100% {
+    background-color: #00CED1; /* Açık bir turkuaz tonu */
+  }
+}
 .to-do-header{
   border-bottom: 3px solid #ADD8E6;
   width: 100%;
@@ -90,6 +115,28 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
+.to-do-header button:hover{
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-family: 'Spline Sans', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.to-do-header button:active{
+  padding: 7px;
+  border-radius: 5px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-family: 'Spline Sans', sans-serif;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 .current-page{
   width: 100%;
   height: 100%;
@@ -101,6 +148,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   width: 100%;
   border-bottom: 1px solid black;
   align-items: center;
+  transition: 1s;
 }
 
 .work button{
