@@ -6,14 +6,7 @@ import RenderTasks from './Components/RenderTasks';
 import CompleteTasks from './Components/CompleteTasks';
 import Welcome from './Components/Welcome';
 
-const denemeObj = {
-  adult: ['Güven', 'Ahmet', 'Mehmet'],
-  child: ['Ayşe', 'Selen', 'Fevzi']
-}
 
-denemeObj.adult.push('Kerem')
-
-console.log(denemeObj)
 
 
 function App() {
@@ -40,11 +33,15 @@ function App() {
  function addGuest(){
   setGuestList((prev) => {
     let updatedObj = {...prev}
-    if(guestAge.current.value <= 12){
-      updatedObj.child.push(guestName.current.value)
-    } else if (guestAge.current.value > 12){
-      updatedObj.adult.push(guestName.current.value)
+
+    // {+guestAge.current.value <= 12 ? updatedObj.child.push(guestName.current.value) : +guestAge.current.value > 12}
+
+    if(+guestAge.current.value <= 12){
+      updatedObj.child = [...updatedObj.child, guestName.current.value]
+    } else {
+      updatedObj.adult = [...updatedObj.adult, guestName.current.value]
     }
+
     return updatedObj
   })
  }
@@ -191,8 +188,6 @@ function App() {
 
         {console.log(guestList)}
 
-        {denemeObj.adult.map((row) => <p>{row}</p>)}
-        {denemeObj.child.map((row) => <p>{row}</p>)}
 
       </div>
              
