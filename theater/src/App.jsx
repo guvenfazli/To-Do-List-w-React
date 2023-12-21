@@ -244,7 +244,8 @@ function App() {
             <div className='to-do-header'>
               <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
               <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
-              <button onClick={addAsTask}>Add to the List!</button>
+              {workTitle.current.value && workDate.current.value ? <button className='add-button' onClick={addAsTask}>Add to the List!</button> : <button className='non-functional-button'>Enter Valid Values</button>}
+              
             </div>
 
             {console.log(taskList)}

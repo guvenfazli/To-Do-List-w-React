@@ -105,7 +105,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 
-.to-do-header button{
+.add-button{
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -115,7 +115,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
 }
 
-.to-do-header button:hover{
+.non-functional-button{
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: 'Spline Sans', sans-serif;
+}
+
+.add-button:hover{
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -126,7 +135,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: 0.3s;
 }
 
-.to-do-header button:active{
+.add-button:active{
   padding: 7px;
   border-radius: 5px;
   border: none;
