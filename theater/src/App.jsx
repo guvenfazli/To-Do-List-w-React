@@ -30,16 +30,26 @@ function App() {
   child: []
  })
 
+ const [guestPerson, setGuestPerson] = useState('adult');
+
+ 
+
  function addGuest(){
   setGuestList((prev) => {
     let updatedObj = {...prev}
 
-    // {+guestAge.current.value <= 12 ? updatedObj.child.push(guestName.current.value) : +guestAge.current.value > 12}
+    /* 
+      if(+guestAge.current.value <= 12){
+        updateObj.child.push(guestName.current.value)
+      } else {
+        updateObj.adult.push(guestName.current.value)
+      }
+    */
 
     if(+guestAge.current.value <= 12){
-      updatedObj.child = [...updatedObj.child, guestName.current.value]
+      updatedObj.child = [...updatedObj.child, guestName.current.value + ' ' + guestAge.current.value]
     } else {
-      updatedObj.adult = [...updatedObj.adult, guestName.current.value]
+      updatedObj.adult = [...updatedObj.adult, guestName.current.value + ' ' + guestAge.current.value]
     }
 
     return updatedObj
@@ -186,9 +196,12 @@ function App() {
 
         <p>Selam</p>
 
-        <button>Adults</button> <button>Children</button>
+        <button onClick={() => setGuestPerson('adult')}>Adults</button> <button onClick={() => setGuestPerson('child')}>Children</button>
 
         {console.log(guestList)}
+
+        {guestList[guestPerson].map((row) => <p>{row}</p>)}
+        
 
 
       </div>
