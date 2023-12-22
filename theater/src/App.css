@@ -113,6 +113,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: white;
   font-family: 'Spline Sans', sans-serif;
   cursor: pointer;
+  transition: 0.3s;
+
 }
 
 .non-functional-button{
@@ -122,6 +124,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: rgb(25, 25, 25);
   color: white;
   font-family: 'Spline Sans', sans-serif;
+
 }
 
 .add-button:hover{
@@ -132,8 +135,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: black;
   font-family: 'Spline Sans', sans-serif;
   cursor: pointer;
-  transition: 0.3s;
 }
+
+
 
 .add-button:active{
   padding: 7px;

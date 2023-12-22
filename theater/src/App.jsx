@@ -7,9 +7,20 @@ import CompleteTasks from './Components/CompleteTasks';
 import Welcome from './Components/Welcome';
 
 
+const deneme = ["Ahmet", "Güven", "Mehmet", "Can", "Burak"];
+
+// Harfe göre sıralama fonksiyonu
+const compareFunction = (a, b) => a.localeCompare(b);
+
+const siraliDeneme = deneme.sort(compareFunction);
+
+
+
 
 
 function App() {
+
+
 
  const workTitle = useRef();
  const workDate = useRef();
@@ -273,7 +284,7 @@ function App() {
       </section>
 
 
-
+      {siraliDeneme.map((row) => <p>{row}</p>)}
 
 
 
