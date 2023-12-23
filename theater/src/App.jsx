@@ -51,20 +51,6 @@ function App() {
   completed: []
  })
 
- const [testList, setTestList] = useState({
-  avl: [],
-  comp: []
- })
-
- function addTestList(){
-  setTestList((prev) => {
-    let updatedList = {...prev}
-    updatedList.avl = [...updatedList.avl, work]
-    updatedList.comp = [...updatedList.comp]
-    return updatedList;
-  })
- }
-
  const [removeAnim, setRemoveAnim] = useState(true)
 
  const [renderTask, setRenderTask] = useState('available')
