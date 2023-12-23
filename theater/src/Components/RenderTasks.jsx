@@ -1,6 +1,6 @@
 import RemovePopUp from "./Remove"
 
-export default function RenderTasks({work, date, open, remove, removeWork, complete}){
+export default function RenderTasks({work, date, open, remove, removeWork, complete, avlorcomp}){
   return (
   
   <>

@@ -7,6 +7,7 @@ import CompleteTasks from './Components/CompleteTasks';
 import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
 import RenderWork from './Components/RenderWork/RenderWork';
+import CompleteWork from './Components/CompleteTasks';
 
 
 
@@ -289,6 +290,7 @@ function App() {
 
               {noTask ? <NoTask close={closeNoTask} /> : <></>}
 
+              {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} {...work}/>))}
 
 
               
@@ -304,7 +306,6 @@ function App() {
       </section>
 
 
-      {taskList.available.map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} {...work}/>))}
 
       {denemeObj.avl.map((row) => <p>{row.isim}</p>)}
       
