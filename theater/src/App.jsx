@@ -286,7 +286,7 @@ function App() {
 
       {siraliDeneme.map((row) => <p>{row}</p>)}
 
-
+      {console.log(siraliDeneme)}
 
     </>
 );
