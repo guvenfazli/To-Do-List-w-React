@@ -22,7 +22,7 @@ section{
   display: flex;
   align-items:start;
   background-image: linear-gradient(to right, #f7984a, #ffac7b);
-  color: black;
+  color: white;
 }
 
 .to-do nav{
@@ -33,14 +33,14 @@ section{
   flex-direction: column;
   text-align: center;
   align-items: center;
-  background-color: #793b0f;
+  background-color: #4c3a16;
   transition: 1s;
   border-radius: 5px;
   
 }
 
 .to-do nav:hover{
-  background-color: #a55a22;
+  background-color: #735d1f;
 }
 
 .to-do nav button{
