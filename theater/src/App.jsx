@@ -9,26 +9,59 @@ import Welcome from './Components/Welcome';
 
 
 
+const deneme = {
+  adult: [{name: '', age: '', job: ''}],
+  child: [{name: '', age: '', gender: ''}]
+}
 
+deneme.adult.push({name: 'Güven', age: 24, job: 'frontend'})
 
-
+console.log(deneme)
 
 function App() {
 
  const workTitle = useRef();
  const workDate = useRef();
+ const workDesc = useRef();
  const guestName = useRef();
  const guestAge = useRef();
 
  const [work, setWork] = useState({
   work: '',
   date: '',
+  description: ''
  })
+
+ function createWork(){
+  setWork((prev) => {
+    return {
+      ...prev,
+      work: workTitle.current.value,
+      date: workDate.current.value,
+      description: workDesc.current.value
+    }
+  })
+ }
+ 
 
  const [taskList, setTaskList] = useState({
   available: [],
   completed: []
  })
+
+ const [testList, setTestList] = useState({
+  avl: [],
+  comp: []
+ })
+
+ function addTestList(){
+  setTestList((prev) => {
+    let updatedList = {...prev}
+    updatedList.avl = [updatedList.avl, work]
+    updatedList.comp = [updatedList.comp]
+    return updatedList;
+  })
+ }
 
  const [removeAnim, setRemoveAnim] = useState(true)
 
@@ -68,7 +101,6 @@ function App() {
 
  function markAsCompleted(index){
   setRemoveAnim(false)
-
   setTimeout(() => {
     setTaskList((prev) => {
       let updatedTask = {...prev}
@@ -178,16 +210,7 @@ function App() {
  }
 
  
- function createWork(){
-  setWork((prev) => {
-    return {
-      ...prev,
-      work: workTitle.current.value,
-      date: workDate.current.value
-    }
-  })
- }
- 
+
 
  function addToList(){
 
@@ -252,7 +275,6 @@ function App() {
             <h2>Project Manager</h2>
             <button onClick={() => setRenderTask('available')}>My Projects ({taskList.available.length})</button>
             <button onClick={() => setRenderTask('completed')}>Completed ({taskList.completed.length})</button>
-            <button>Trash Can</button>
           </nav>
 
           <div className='current-page'>
@@ -288,6 +310,12 @@ function App() {
 
       </section>
 
+      {testList.avl.map((row) => <><p>{row.work}</p> <p>{row.date}</p> <p>{row.description}</p></>)}
+
+      <input type="text" placeholder='name' ref={workTitle} onChange={createWork} />
+      <input type="text" placeholder='age' ref={workDate} onChange={createWork}/>
+      <input type="text" placeholder='job' ref={workDesc} onChange={createWork}/>
+      <button onClick={addTestList}>Add</button>
 
 
 
