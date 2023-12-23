@@ -6,15 +6,8 @@ import RenderTasks from './Components/RenderTasks';
 import CompleteTasks from './Components/CompleteTasks';
 import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
-import RenderWork from './Components/RenderWork/RenderWork';
-import CompleteWork from './Components/CompleteTasks';
+import RenderWork from './Components/RenderWork/RenderWork.jsx';
 
-
-
-const denemeObj = {
-  comp: [{isim: 'dflkjgd', age: 34, job: 'kldfj'}],
-  avl: [{isim: 'dklfjgdkf', age: 23, job: 'kldfjgdfg'}]
-}
 
 function App() {
 
@@ -212,7 +205,7 @@ function App() {
 
  function addToList(){
 
-  if(workTitle.current.value === '' || workDate.current.value === '') {
+  if(workTitle.current.value === '' || workDate.current.value === '' || workDesc.current.value === '') {
     alert('Please Enter Valid Date or Task!')
   } else {
     setToDoList((prev) => {
@@ -307,7 +300,6 @@ function App() {
 
 
 
-      {denemeObj.avl.map((row) => <p>{row.isim}</p>)}
       
 
 

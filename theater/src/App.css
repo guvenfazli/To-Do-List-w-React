@@ -18,7 +18,7 @@ section{
   width: 75%;
   height: 50vh;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 12px;
   display: flex;
   align-items:start;
   background-image: linear-gradient(to right, #f7984a, #ffac7b);
@@ -33,6 +33,14 @@ section{
   flex-direction: column;
   text-align: center;
   align-items: center;
+  background-color: #793b0f;
+  transition: 1s;
+  border-radius: 5px;
+  
+}
+
+.to-do nav:hover{
+  background-color: #a55a22;
 }
 
 .to-do nav button{
