@@ -94,6 +94,11 @@ function App() {
       })
     }, 1000)
 
+    setTimeout(() => {
+      workDate.current.value = ''
+      workTitle.current.value = ''
+      workDesc.current.value = ''
+    }, 10)
   
     showPopUp();
   }
