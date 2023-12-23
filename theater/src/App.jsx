@@ -1,6 +1,7 @@
 import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
+import hamburger from './Assets/bars-solid.svg'
 import RemovePopUp from './Components/Remove';
 import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
@@ -20,6 +21,12 @@ function App() {
   date: '',
   description: ''
  })
+
+ const [navBar, setNavBar] = useState(false)
+
+ function openCloseNav(){
+  setNavBar((prev) => !prev)
+ }
 
  const [expand, setExpand] = useState(false)
 
@@ -266,7 +273,7 @@ function App() {
    
         <div className='to-do'>
 
-          <nav>
+          <nav className={navBar ? 'to-do-nav' : 'closed-nav'}>
             <h2>Project Manager</h2>
             <button onClick={() => setRenderTask('available')}>My Projects ({taskList.available.length})</button>
             <button onClick={() => setRenderTask('completed')}>Completed ({taskList.completed.length})</button>
@@ -283,6 +290,8 @@ function App() {
             </div>
 
 
+
+
             <div className='work-display'>
 
               {noTask ? <NoTask close={closeNoTask} /> : <></>}
@@ -290,7 +299,8 @@ function App() {
               {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} expand={expandDiv} ex={expand} {...work}/>))}
 
 
-              
+              <button onClick={openCloseNav} className={navBar ? 'hmb' : 'open-nav-btn'}><img src={hamburger} alt="hamburger" /></button>
+
  
 
             </div>
