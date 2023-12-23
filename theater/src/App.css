@@ -207,12 +207,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .work{
   display: flex;
   flex-direction: row;
-  width: 61%;
+  width: 50%;
   border-bottom: 2px solid #ADD8E6;
   align-items: center;
   transition: 1s;
   border-right: 2px solid #ADD8E6;
   color: black;
+  
 }
 
 .work button{
@@ -243,14 +244,20 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 6px;
   border: none;
   cursor: pointer;
+  
 }
 
 .expanded{
   visibility: visible;
+  flex-shrink: 0;
+  transition: 1s;
+  opacity: 1;
 }
 
 .expanded-div{
   width: 100%;
+  border-bottom: 2px solid #ADD8E6;
+  border-right: 0px solid #ADD8E6;
 }
 
 .work p{
@@ -307,6 +314,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .task-desc{
   visibility: hidden;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: 1s;
 }
 
 
