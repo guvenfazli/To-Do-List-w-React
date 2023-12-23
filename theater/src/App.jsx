@@ -2,11 +2,9 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
 import RemovePopUp from './Components/Remove';
-import RenderTasks from './Components/RenderTasks';
-import CompleteTasks from './Components/CompleteTasks';
 import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
-import RenderWork from './Components/RenderWork/RenderWork.jsx';
+import RenderWork from './Components/RenderWork/RenderWork';
 
 
 function App() {
