@@ -23,6 +23,7 @@ section{
   align-items:start;
   background-image: linear-gradient(to right, #f7984a, #ffac7b);
   color: white;
+  position: relative;
 }
 
 .to-do-nav{
@@ -207,7 +208,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .work{
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 55%;
   border-bottom: 2px solid #ADD8E6;
   align-items: center;
   transition: 1s;
@@ -325,8 +326,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .hmb{
   position: absolute;
-  left: 0%;
-  bottom: -3%;
+  left: 20.2%;
+  bottom: 0%;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -334,12 +335,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: white;
   font-family: 'Spline Sans', sans-serif;
   cursor: pointer;
+  transition: 1s;
 }
 
 .open-nav-btn{
   position: absolute;
   left: 0%;
-  bottom: -3%;
+  bottom: 0%;
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -347,6 +349,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: white;
   font-family: 'Spline Sans', sans-serif;
   cursor: pointer;
+  transition: 1s;
+
 }
 
 .closed-nav{

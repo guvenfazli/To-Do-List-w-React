@@ -289,17 +289,16 @@ function App() {
               
             </div>
 
+            <button onClick={openCloseNav} className={navBar ? 'hmb' : 'open-nav-btn'}><img src={hamburger} alt="hamburger" /></button>
 
 
 
             <div className='work-display'>
-
               {noTask ? <NoTask close={closeNoTask} /> : <></>}
-
+              
               {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} expand={expandDiv} ex={expand} {...work}/>))}
 
 
-              <button onClick={openCloseNav} className={navBar ? 'hmb' : 'open-nav-btn'}><img src={hamburger} alt="hamburger" /></button>
 
  
 
