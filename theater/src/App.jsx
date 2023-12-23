@@ -7,6 +7,7 @@ import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
 import RenderWork from './Components/RenderWork/RenderWork';
 
+const denemeArray = [{name: 'Güven', age: 24}, {name: 'Ahmet', age: 20}, {name: 'Mehmet', age: 23}, {name: 'Leila', age: 21}]
 
 function App() {
 
@@ -126,6 +127,8 @@ function App() {
  }
 
  /* TESTS ARE DOWN BELOW*/
+
+ const [indexTest, setIndexTest] = useState(0)
 
  const [toDoList, setToDoList] = useState([])
 
@@ -303,8 +306,8 @@ function App() {
       </section>
 
 
-
-      
+      {denemeArray.map((row, index) => <p onClick={() => setIndexTest(index)}>{row.name}</p>)}
+      <p>{denemeArray[indexTest].name}</p>
 
 
 

@@ -339,6 +339,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   transition: 1s;
 }
 
+
+
 .open-nav-btn{
   position: absolute;
   left: 0%;
