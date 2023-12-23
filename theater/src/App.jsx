@@ -7,7 +7,6 @@ import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
 import RenderWork from './Components/RenderWork/RenderWork';
 
-const denemeArray = [{name: 'Güven', age: 24}, {name: 'Ahmet', age: 20}, {name: 'Mehmet', age: 23}, {name: 'Leila', age: 21}]
 
 function App() {
 
@@ -292,6 +291,8 @@ function App() {
               
               {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} expand={expandDiv} ex={expand} {...work}/>))}
 
+            
+
 
 
  
@@ -305,9 +306,6 @@ function App() {
 
       </section>
 
-
-      {denemeArray.map((row, index) => <p onClick={() => setIndexTest(index)}>{row.name}</p>)}
-      <p>{denemeArray[indexTest].name}</p>
 
 
 
