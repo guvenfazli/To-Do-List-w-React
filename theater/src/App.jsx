@@ -4,6 +4,7 @@ import AddedPopUp from './Components/Added';
 import RemovePopUp from './Components/Remove';
 import RenderTasks from './Components/RenderTasks';
 import CompleteTasks from './Components/CompleteTasks';
+import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
 
 
@@ -13,8 +14,6 @@ import Welcome from './Components/Welcome';
 
 
 function App() {
-
-
 
  const workTitle = useRef();
  const workDate = useRef();
@@ -35,6 +34,14 @@ function App() {
 
  const [renderTask, setRenderTask] = useState('available')
 
+ const [noTask, setNoTask] = useState(true)
+
+ function closeNoTask(){
+  setNoTask(false)
+  workTitle.current.focus();
+
+ }
+
  function addAsTask(){
   setRemoveAnim(false)
 
@@ -46,6 +53,7 @@ function App() {
         let updatedTask = {...prev}
         updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
         updatedTask.completed = [...updatedTask.completed]
+        setNoTask(false)
         setRemoveAnim(true)
         return updatedTask;
       })
@@ -91,6 +99,8 @@ function App() {
 
 
  }
+
+ /* TESTS ARE DOWN BELOW*/
 
  const [toDoList, setToDoList] = useState([])
 
@@ -254,9 +264,10 @@ function App() {
               
             </div>
 
-            {console.log(taskList)}
 
             <div className='work-display'>
+
+              {noTask ? <NoTask close={closeNoTask} /> : <></>}
 
               {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className={removeAnim ? 'work' : 'remove-task-animation'}><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row) => <div className='work'><p>{row}</p></div>)}
 
