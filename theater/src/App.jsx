@@ -6,17 +6,14 @@ import RenderTasks from './Components/RenderTasks';
 import CompleteTasks from './Components/CompleteTasks';
 import NoTask from './Components/No Task/NoTask';
 import Welcome from './Components/Welcome';
+import RenderWork from './Components/RenderWork/RenderWork';
 
 
 
-const deneme = {
-  adult: [{name: '', age: '', job: ''}],
-  child: [{name: '', age: '', gender: ''}]
+const denemeObj = {
+  comp: [{isim: 'dflkjgd', age: 34, job: 'kldfj'}],
+  avl: [{isim: 'dklfjgdkf', age: 23, job: 'kldfjgdfg'}]
 }
-
-deneme.adult.push({name: 'Güven', age: 24, job: 'frontend'})
-
-console.log(deneme)
 
 function App() {
 
@@ -57,8 +54,8 @@ function App() {
  function addTestList(){
   setTestList((prev) => {
     let updatedList = {...prev}
-    updatedList.avl = [updatedList.avl, work]
-    updatedList.comp = [updatedList.comp]
+    updatedList.avl = [...updatedList.avl, work]
+    updatedList.comp = [...updatedList.comp]
     return updatedList;
   })
  }
@@ -84,7 +81,7 @@ function App() {
     setTimeout(() => {
       setTaskList((prev) => {
         let updatedTask = {...prev}
-        updatedTask.available = [...updatedTask.available, workTitle.current.value + ' ' + workDate.current.value]
+        updatedTask.available = [...updatedTask.available, work]
         updatedTask.completed = [...updatedTask.completed]
         setNoTask(false)
         setRemoveAnim(true)
@@ -281,7 +278,8 @@ function App() {
             <div className='to-do-header'>
               <input type="text" placeholder='Work' ref={workTitle} onChange={createWork}/>
               <input type="Date" placeholder='Choose' ref={workDate} onChange={createWork}/>
-              {!workTitle && !workDate ? <button className='non-functional-button'>Enter Valid Values</button> : <button className='add-button' onClick={addAsTask}>Add to the List!</button>}
+              <input type="text" placeholder='Description' ref={workDesc} onChange={createWork} />
+              <button className='add-button' onClick={addAsTask}>Add to the List!</button>
 
               
             </div>
@@ -291,12 +289,7 @@ function App() {
 
               {noTask ? <NoTask close={closeNoTask} /> : <></>}
 
-              {renderTask === 'available' ? taskList[renderTask].map((row,index) => <div className={removeAnim ? 'work' : 'remove-task-animation'}><p>{row}</p> <button onClick={() => removeTask(index)} className='remove-btn'>Remove</button> <button onClick={() => markAsCompleted(index)} className='complete-btn'>Complete</button></div>) : taskList[renderTask].map((row) => <div className='work'><p>{row}</p></div>)}
 
-
-
-              {currentTask ? toDoList.map((renderTask, index) => (<RenderTasks complete={() => completeWork(index)} open={removePup} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...renderTask}/>)) : ''} 
-              {completeTask ? completeList.map((doneTask, index) => (<CompleteTasks complete={() => completeWork(index)} removeWork={removeWork} remove={() => removeWorkFromList(index)} {...doneTask} />)) : ''}
 
               
  
@@ -310,12 +303,11 @@ function App() {
 
       </section>
 
-      {testList.avl.map((row) => <><p>{row.work}</p> <p>{row.date}</p> <p>{row.description}</p></>)}
 
-      <input type="text" placeholder='name' ref={workTitle} onChange={createWork} />
-      <input type="text" placeholder='age' ref={workDate} onChange={createWork}/>
-      <input type="text" placeholder='job' ref={workDesc} onChange={createWork}/>
-      <button onClick={addTestList}>Add</button>
+      {taskList.available.map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} {...work}/>))}
+
+      {denemeObj.avl.map((row) => <p>{row.isim}</p>)}
+      
 
 
 
