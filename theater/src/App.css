@@ -207,10 +207,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .work{
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 61%;
   border-bottom: 2px solid #ADD8E6;
   align-items: center;
   transition: 1s;
+  border-right: 2px solid #ADD8E6;
+  color: black;
 }
 
 .work button{
@@ -233,6 +235,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   background-color: #66FF8C;
   
+}
+
+.expand-btn {
+  background-color: #e17c49;
+  padding: 7px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.expanded{
+  visibility: visible;
+}
+
+.expanded-div{
+  width: 100%;
 }
 
 .work p{
@@ -286,6 +304,11 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .remove-task-animation button{
   margin-right: 25px;
 }
+
+.task-desc{
+  visibility: hidden;
+}
+
 
 
 

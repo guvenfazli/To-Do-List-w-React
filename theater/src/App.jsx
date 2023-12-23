@@ -21,6 +21,12 @@ function App() {
   description: ''
  })
 
+ const [expand, setExpand] = useState(false)
+
+ function expandDiv(){
+  setExpand((prev) => !prev)
+ }
+
  function createWork(){
   setWork((prev) => {
     return {
@@ -281,7 +287,7 @@ function App() {
 
               {noTask ? <NoTask close={closeNoTask} /> : <></>}
 
-              {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} {...work}/>))}
+              {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} expand={expandDiv} ex={expand} {...work}/>))}
 
 
               
