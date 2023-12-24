@@ -98,6 +98,7 @@ function App() {
  }
 
 /* Add Task as Completed */
+
 function markAsCompleted(index){
   setRemoveAnim(false)
   setTimeout(() => {
@@ -118,11 +119,11 @@ function markAsCompleted(index){
 
  const [removeAnim, setRemoveAnim] = useState(true)
 
- /* Renderin the Tasks */
+ /* Rendering the Tasks */
 
  const [renderTask, setRenderTask] = useState('available')
 
- /* Starting Pop Up */
+ /* Starting Pop-Up */
 
  const [noTask, setNoTask] = useState(true)
 
@@ -131,7 +132,7 @@ function markAsCompleted(index){
   workTitle.current.focus();
  }
 
- /* Succesfully added Pop Up */
+ /* Succesfully added Pop-Up */
 
  const [showPup, setShowPup] = useState(false)
 
