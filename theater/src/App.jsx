@@ -2,9 +2,7 @@ import './App.css';
 import { useState, useRef, useEffect } from 'react';
 import AddedPopUp from './Components/Added';
 import hamburger from './Assets/bars-solid.svg'
-import RemovePopUp from './Components/Remove';
 import NoTask from './Components/No Task/NoTask';
-import Welcome from './Components/Welcome';
 import RenderWork from './Components/RenderWork/RenderWork';
 
 
@@ -13,8 +11,6 @@ function App() {
  const workTitle = useRef();
  const workDate = useRef();
  const workDesc = useRef();
- const guestName = useRef();
- const guestAge = useRef();
 
  const [work, setWork] = useState({
   work: '',
@@ -122,139 +118,19 @@ function App() {
     })
   }, 1000)
 
-
  }
 
- /* TESTS ARE DOWN BELOW*/
-
- const [indexTest, setIndexTest] = useState(0)
-
- const [toDoList, setToDoList] = useState([])
-
- const [completeList, setCompleteList] = useState([])
-
- const [guestList, setGuestList] = useState({
-  adult: [],
-  child: []
- })
-
- const [guestPerson, setGuestPerson] = useState('adult');
-
- 
-
- function addGuest(){
-  setGuestList((prev) => {
-    let updatedObj = {...prev}
-
-    /* 
-      if(+guestAge.current.value <= 12){
-        updateObj.child.push(guestName.current.value)
-      } else {
-        updateObj.adult.push(guestName.current.value)
-      }
-    */
-
-    if(+guestAge.current.value <= 12){
-      updatedObj.child = [...updatedObj.child, guestName.current.value + ' ' + guestAge.current.value]
-    } else {
-      updatedObj.adult = [...updatedObj.adult, guestName.current.value + ' ' + guestAge.current.value]
-    }
-
-    return updatedObj
-  })
- }
-
- function addAsChild(index){
-  setGuestList((prev) => {
-    let updatedObj = {...prev}
-    updatedObj.child = [...updatedObj.child, updatedObj.adult[index]]
-    updatedObj.adult = [...updatedObj.adult]
-    updatedObj.adult.splice(index, 1)
-    return updatedObj;
-  })
-
- }
 
  const [showPup, setShowPup] = useState(false)
 
- const [removePup, setRemovePup] = useState(false)
-
- const [currentTask, setCurrentTask] = useState(true)
-
- const [completeTask, setCompleteTask] = useState(false)
-
- function showSelect(){
-    setCurrentTask(true)
-    setCompleteTask(false)
-  }
-
-  function renderComplete(){
-    setCompleteTask(true)
-    setCurrentTask(false)
-  }
-
- 
 
  function showPopUp(){
   setShowPup(true)
   setTimeout(() => {setShowPup(false)}, 2000)
  }
 
- function showRemovePup(){
-  setRemovePup((prev) => !prev);
- }
-
- 
 
 
- function addToList(){
-
-  if(workTitle.current.value === '' || workDate.current.value === '' || workDesc.current.value === '') {
-    alert('Please Enter Valid Date or Task!')
-  } else {
-    setToDoList((prev) => {
-      return [
-        ...prev,
-        work
-      ]
-    })
-    workTitle.current.value = '';
-    workDate.current.value = '';
-  
-    showPopUp()
-  }
-
- }
-
- function removeWork(){
-  showRemovePup()
- }
-
- function removeWorkFromList(index){
-  setToDoList((prev) => {
-    let updatedList = [...prev]
-    updatedList.splice(index, 1)
-    return updatedList
-  })
-
-  showRemovePup()
- }
-
- function completeWork(index){
-  setToDoList((prev) => {
-    let updatedList = [...prev]
-    updatedList.splice(index, 1)
-    return updatedList
-  })
-
-  setCompleteList((prev) => {
-    let doneList = [...prev]
-    doneList.push(toDoList[index])
-    return doneList
-  })
-
- }
-  
   
   return (
     <>
