@@ -12,23 +12,13 @@ function App() {
  const workDate = useRef();
  const workDesc = useRef();
 
+ /* Create Work */
+
  const [work, setWork] = useState({
   work: '',
   date: '',
   description: ''
  })
-
- const [navBar, setNavBar] = useState(false)
-
- function openCloseNav(){
-  setNavBar((prev) => !prev)
- }
-
- const [expand, setExpand] = useState(false)
-
- function expandDiv(){
-  setExpand((prev) => !prev)
- }
 
  function createWork(){
   setWork((prev) => {
@@ -40,24 +30,27 @@ function App() {
     }
   })
  }
- 
+
+ /* Open / Close Nav Bar*/
+ const [navBar, setNavBar] = useState(false)
+
+ function openCloseNav(){
+  setNavBar((prev) => !prev)
+ }
+
+ /* Expand Description */
+ const [expand, setExpand] = useState(false)
+
+ function expandDiv(){
+  setExpand((prev) => !prev)
+ }
+
+ /* Add To The Task List */
 
  const [taskList, setTaskList] = useState({
   available: [],
   completed: []
  })
-
- const [removeAnim, setRemoveAnim] = useState(true)
-
- const [renderTask, setRenderTask] = useState('available')
-
- const [noTask, setNoTask] = useState(true)
-
- function closeNoTask(){
-  setNoTask(false)
-  workTitle.current.focus();
-
- }
 
  function addAsTask(){
   setRemoveAnim(false)
@@ -85,9 +78,23 @@ function App() {
     showPopUp();
   }
 
+ }
+
+
+
+ const [removeAnim, setRemoveAnim] = useState(true)
+
+ const [renderTask, setRenderTask] = useState('available')
+
+ const [noTask, setNoTask] = useState(true)
+
+ function closeNoTask(){
+  setNoTask(false)
+  workTitle.current.focus();
 
  }
 
+/* Add Task as Completed */
  function markAsCompleted(index){
   setRemoveAnim(false)
   setTimeout(() => {
@@ -105,6 +112,8 @@ function App() {
 
  }
 
+ /* Remove Task From List */ 
+
  function removeTask(index){
   setRemoveAnim(false)
 
@@ -120,7 +129,7 @@ function App() {
 
  }
 
-
+ /* Succesfully added Pop Up */
  const [showPup, setShowPup] = useState(false)
 
 
