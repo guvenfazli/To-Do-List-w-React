@@ -5,8 +5,6 @@ export default function RenderWork({work, date, description, removeTask, markAsC
 
   const [showDesc, setShowDesc] = useState(false)
 
-
-
   return (
     <>
 

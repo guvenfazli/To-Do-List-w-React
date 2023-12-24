@@ -7,7 +7,7 @@ import RenderWork from './Components/RenderWork/RenderWork';
 
 
 function App() {
-
+ /* Used Refs */
  const workTitle = useRef();
  const workDate = useRef();
  const workDesc = useRef();
@@ -80,38 +80,6 @@ function App() {
 
  }
 
-
-
- const [removeAnim, setRemoveAnim] = useState(true)
-
- const [renderTask, setRenderTask] = useState('available')
-
- const [noTask, setNoTask] = useState(true)
-
- function closeNoTask(){
-  setNoTask(false)
-  workTitle.current.focus();
-
- }
-
-/* Add Task as Completed */
- function markAsCompleted(index){
-  setRemoveAnim(false)
-  setTimeout(() => {
-    setTaskList((prev) => {
-      let updatedTask = {...prev}
-      updatedTask.completed = [...updatedTask.completed, updatedTask.available[index]]
-      updatedTask.available = [...updatedTask.available]
-      updatedTask.available.splice(index, 1)
-      setRemoveAnim(true)
-      return updatedTask
-    })
-  }, 1000)
-
-
-
- }
-
  /* Remove Task From List */ 
 
  function removeTask(index){
@@ -129,13 +97,49 @@ function App() {
 
  }
 
+/* Add Task as Completed */
+function markAsCompleted(index){
+  setRemoveAnim(false)
+  setTimeout(() => {
+    setTaskList((prev) => {
+      let updatedTask = {...prev}
+      updatedTask.completed = [...updatedTask.completed, updatedTask.available[index]]
+      updatedTask.available = [...updatedTask.available]
+      updatedTask.available.splice(index, 1)
+      setRemoveAnim(true)
+      return updatedTask
+    })
+  }, 1000)
+
+ }
+
+
+ /* Remove Animation */ 
+
+ const [removeAnim, setRemoveAnim] = useState(true)
+
+ /* Renderin the Tasks */
+
+ const [renderTask, setRenderTask] = useState('available')
+
+ /* Starting Pop Up */
+
+ const [noTask, setNoTask] = useState(true)
+
+ function closeNoTask(){
+  setNoTask(false)
+  workTitle.current.focus();
+ }
+
  /* Succesfully added Pop Up */
+
  const [showPup, setShowPup] = useState(false)
 
 
  function showPopUp(){
   setShowPup(true)
   setTimeout(() => {setShowPup(false)}, 2000)
+
  }
 
 
@@ -144,7 +148,6 @@ function App() {
   return (
     <>
 
-    
       <AddedPopUp open={showPup} />
       
       <section>
@@ -176,11 +179,6 @@ function App() {
               
               {taskList[renderTask].map((work, index) => (<RenderWork removeAnim={removeAnim} removeTask={() => removeTask(index)} markAsCompleted={() => markAsCompleted(index)} avlorcomp={renderTask} expand={expandDiv} ex={expand} {...work}/>))}
 
-            
-
-
-
- 
 
             </div>
 
@@ -188,11 +186,7 @@ function App() {
 
         </div>
 
-
       </section>
-
-
-
 
     </>
 );
